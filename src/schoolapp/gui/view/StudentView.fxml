@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="549.0" prefWidth="604.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="schoolapp.StudentViewController">
+<AnchorPane id="AnchorPane" prefHeight="549.0" prefWidth="604.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="schoolapp.gui.controller.StudentViewController">
    <children>
       <ListView layoutX="9.0" layoutY="100.0" prefHeight="184.0" prefWidth="569.0" AnchorPane.bottomAnchor="265.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="100.0" />
       <ScrollBar layoutX="577.0" layoutY="100.0" orientation="VERTICAL" prefHeight="184.0" prefWidth="18.0" />
