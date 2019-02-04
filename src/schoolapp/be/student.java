@@ -5,23 +5,27 @@
  */
 package schoolapp.be;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 
 /**
  *
  * @author Christian Occhionero
  */
-public class student
+public class student extends person
 {
-    private final String name; 
-    private boolean wasHere;
-    private final int id; 
     
+    private boolean wasHere;
+    private final ArrayList<Boolean> daysAttended;
 // Constructer 
+    
+    
     public student (String name, int id)
     {
-        this.name = name;
-        this.id = id;
+       super(name,  id);
+        daysAttended = new ArrayList<>();
     }
 
     public boolean getWasHere()
@@ -34,16 +38,7 @@ public class student
         this.wasHere = wasHere;
     }
 
-    public String getName()
-    {
-        return name;
-    }
 
-    public int getId()
-    {
-        return id;
-    }
-    
 
 
 } // end class
