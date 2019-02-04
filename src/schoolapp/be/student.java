@@ -19,9 +19,8 @@ public class student extends person
     
     private boolean wasHere;
     private final ArrayList<Boolean> daysAttended;
-// Constructer 
-    
-    
+
+// Constructer     
     public student (String name, int id)
     {
        super(name,  id);
