@@ -5,11 +5,19 @@
  */
 package schoolapp.be;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Christian Occhionero
  */
-public class teacher
+public class teacher extends person
 {
-    
+private ArrayList<String> classes;
+
+ public teacher (String name, int id, String email)
+    {
+       super(name,  id, email);
+        classes = new ArrayList<>();
+    }
 }

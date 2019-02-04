@@ -16,11 +16,13 @@ public class person
     String name; 
     private boolean wasHere;
     int id; 
+    private String email;
     
-       public person (String name, int id)
+       public person (String name, int id, String email)
     {
         this.name = name;
         this.id = id;
+        this.email = email;
     }
 
     public String getName()
@@ -32,5 +34,8 @@ public class person
     {
         return id;
     }
-    
+    public void getEmail(String email)
+    {
+        this.email = email;
+    }
 }

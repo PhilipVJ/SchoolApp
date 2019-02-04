@@ -22,9 +22,9 @@ public class student extends person
 // Constructer 
     
     
-    public student (String name, int id)
+    public student (String name, int id, String email)
     {
-       super(name,  id);
+       super(name,  id, email);
         daysAttended = new ArrayList<>();
     }
 
