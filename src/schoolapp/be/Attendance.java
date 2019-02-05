@@ -21,15 +21,25 @@ public class Attendance
 
     private Calendar curDate;
     private BooleanProperty wasThere;
+    private StringProperty attendance;
     private StringProperty date;
 
     public Attendance(Calendar dt, boolean here)
     {
         wasThere = new SimpleBooleanProperty();
+        attendance = new SimpleStringProperty();
         date = new SimpleStringProperty();
         System.out.println(""+here);
         this.curDate = dt;
         wasThere.setValue(here);
+        if(here==true)
+        {
+            attendance.set("Godkendt");
+        }
+        else
+        {
+            attendance.set("Fravær");
+        }
         
         // set the time with date and year
         int day = curDate.get(Calendar.DAY_OF_MONTH);
@@ -53,6 +63,13 @@ public class Attendance
     {
         return date.get();
     }
+
+    public String getAttendance()
+    {
+        return attendance.get();
+    }
+    
+    
 
 
 

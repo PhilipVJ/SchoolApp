@@ -52,7 +52,7 @@ public class StudentViewController implements Initializable
     @FXML
     private TableColumn<Attendance, StringProperty> date;
     @FXML
-    private TableColumn<Attendance, BooleanProperty> presence;
+    private TableColumn<Attendance, StringProperty> presence;
     @FXML
     private LineChart<String, Double> chart;
     @FXML
@@ -73,7 +73,7 @@ public class StudentViewController implements Initializable
 
         // init tableview
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
-        presence.setCellValueFactory(new PropertyValueFactory<>("wasThere"));
+        presence.setCellValueFactory(new PropertyValueFactory<>("attendance"));
         tableView.setItems(model.getList());
 
         // Makes an arraylist with the size of the total number of days the student
