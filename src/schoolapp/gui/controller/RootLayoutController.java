@@ -42,6 +42,9 @@ public class RootLayoutController implements Initializable
     {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/MainView.fxml"));
         Parent root = loader.load();
+        MainViewController con = loader.getController();
+        con.setRootLayout(borderPane);
+        
         borderPane.setCenter(root);
     }
 

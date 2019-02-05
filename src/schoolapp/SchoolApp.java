@@ -21,9 +21,10 @@ import schoolapp.gui.controller.MainViewController;
  */
 public class SchoolApp extends Application
 {
-     private Stage primaryStage;
-     private BorderPane rootLayout;
-    
+
+    private Stage primaryStage;
+    private BorderPane rootLayout;
+
     @Override
     public void start(Stage stage) throws Exception
     {
@@ -37,11 +38,10 @@ public class SchoolApp extends Application
         // Show the scene containing the root layout.
         Scene scene = new Scene(rootLayout);
         primaryStage.setScene(scene);
-        
+
         initView();
-        
-        stage.setScene(scene);
-        stage.show();
+
+        primaryStage.show();
     }
 
     /**
@@ -51,19 +51,18 @@ public class SchoolApp extends Application
     {
         launch(args);
     }
-    
+
     private void initView() throws IOException
     {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(SchoolApp.class.getResource("/schoolapp/gui/view/MainView.fxml"));
         AnchorPane logIn = (AnchorPane) loader.load();
-        
+
         MainViewController controller = loader.getController();
         controller.setRootLayout(rootLayout);
 
-        
         // Set person overview into the center of root layout.
         rootLayout.setCenter(logIn);
     }
-    
+
 }
