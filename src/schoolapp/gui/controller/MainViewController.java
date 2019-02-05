@@ -53,7 +53,15 @@ public class MainViewController implements Initializable
 
     public void setRootLayout(BorderPane rootLayout)
     {
-       this.rootLayout=rootLayout;
+        this.rootLayout = rootLayout;
+    }
+
+    @FXML
+    private void openTeacher(ActionEvent event) throws IOException
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/TeacherView.fxml"));
+        Parent root = loader.load();
+        rootLayout.setCenter(root);
     }
 
 }

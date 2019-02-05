@@ -43,9 +43,9 @@ public class StudentViewController implements Initializable
     @FXML
     private TableView<Attendance> tableView;
     @FXML
-    private TableColumn<Attendance, StringProperty> date;
+    private TableColumn<Attendance, String> date;
     @FXML
-    private TableColumn<Attendance, StringProperty> presence;
+    private TableColumn<Attendance, String> presence;
     @FXML
     private LineChart<String, Double> chart;
     @FXML
@@ -75,7 +75,6 @@ public class StudentViewController implements Initializable
         for (int i = 0; i < s.getFullAttendance().size(); i++)
         {
             dayArray[i] = "" + (i + 1);
-            System.out.println("Done");
         }
         // Convert it to a list and add it to our ObservableList of days.
         allOfDays.addAll(Arrays.asList(dayArray));

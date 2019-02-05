@@ -14,5 +14,6 @@
       <TextField layoutX="237.0" layoutY="268.0" AnchorPane.bottomAnchor="267.0" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="236.0" AnchorPane.topAnchor="268.0" />
       <Label layoutX="237.0" layoutY="236.0" prefHeight="21.0" prefWidth="147.0" text="Brugernavn" AnchorPane.bottomAnchor="309.0" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="236.0" AnchorPane.topAnchor="236.0" />
       <Label layoutX="237.0" layoutY="308.0" prefHeight="21.0" prefWidth="147.0" text="Adgangskode" AnchorPane.bottomAnchor="237.0" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="236.0" AnchorPane.topAnchor="308.0" />
+      <Button layoutX="106.0" layoutY="438.0" mnemonicParsing="false" onAction="#openTeacher" text="Teacher test" />
     </children>
 </AnchorPane>

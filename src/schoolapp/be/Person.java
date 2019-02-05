@@ -7,6 +7,8 @@ package schoolapp.be;
 
 import java.util.ArrayList;
 import java.util.Date;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 /**
  *
@@ -14,30 +16,32 @@ import java.util.Date;
  */
 public class Person
 {
-    String name; 
+    private StringProperty name; 
    
     int id; 
-    private String email;
+    private StringProperty email;
     
        public Person (String name, int id, String email)
     {
-        this.name = name;
+        this.email = new SimpleStringProperty();
+        this.name = new SimpleStringProperty();
+        this.name.set(name);
         this.id = id;
-        this.email = email;
+        this.email.set(email);
     }
 
     public String getName()
     {
-        return name;
+        return name.get();
     }
 
     public int getId()
     {
         return id;
     }
-    public void getEmail(String email)
+    public String getEmail()
     {
-        this.email = email;
+        return email.get();
     }
     
 

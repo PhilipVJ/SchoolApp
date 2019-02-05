@@ -7,7 +7,7 @@ package schoolapp.dal;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import schoolapp.be.Attendance;
+import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
 
 /**
@@ -20,10 +20,15 @@ public class SchoolAppDAL
     private Student s;
     private Student b;
     private Student c;
+    
+    private SchoolClass one;
+    private ArrayList<SchoolClass> allClasses;
 
     public SchoolAppDAL()
     {
-        s = new Student("Wilhelm", 2, "wilhelm@msn.com");
+        one=new SchoolClass("Hold 1");
+        allClasses = new ArrayList<>();
+        s = new Student("Wilhelm", 2, "wilhelm@msn.com", "Hold 1");
         // Setup mockup dates
         Calendar cal = Calendar.getInstance();
         Calendar cal2 = Calendar.getInstance();
@@ -46,7 +51,7 @@ public class SchoolAppDAL
         s.addAttendance(cal5, true);
         s.addAttendance(cal6, true);
 
-        c = new Student("Jens", 3, "jens@msn.com");
+        c = new Student("Jens", 3, "jens@msn.com","Hold 1");
         // Setup mockup dates
         Calendar ccal = Calendar.getInstance();
         Calendar ccal2 = Calendar.getInstance();
@@ -69,7 +74,7 @@ public class SchoolAppDAL
         c.addAttendance(cal5, true);
         c.addAttendance(cal6, true);
 
-        b = new Student("Carl", 4, "carl@msn.com");
+        b = new Student("Carl", 4, "carl@msn.com","Hold 1");
         // Setup mockup dates
         Calendar bcal = Calendar.getInstance();
         Calendar bcal2 = Calendar.getInstance();
@@ -91,6 +96,15 @@ public class SchoolAppDAL
         b.addAttendance(cal4, false);
         b.addAttendance(cal5, false);
         b.addAttendance(cal6, true);
+        
+        one.addStudent(b);
+        one.addStudent(c);
+        one.addStudent(s);
+        
+        allClasses.add(one);
+        
+
+        
     }
 
     public Student getStudent()
@@ -98,13 +112,9 @@ public class SchoolAppDAL
         return s;
     }
     
-    public ArrayList<Student> getAllFromClass()
+    public ArrayList<SchoolClass> getSchoolClasses()
     {
-        ArrayList<Student>allStudents = new ArrayList<>();
-        allStudents.add(s);
-        allStudents.add(b);
-        allStudents.add(c);
-        return allStudents;
+        return allClasses;
     }
 
 }

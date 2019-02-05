@@ -29,7 +29,7 @@ public class Attendance
         wasThere = new SimpleBooleanProperty();
         attendance = new SimpleStringProperty();
         date = new SimpleStringProperty();
-        System.out.println(""+here);
+ 
         this.curDate = dt;
         wasThere.setValue(here);
         if(here==true)

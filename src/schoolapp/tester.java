@@ -15,8 +15,7 @@ public class tester
 {
      public static void main (String[] args) {
 
-SchoolAppDAL tester = new SchoolAppDAL();
-         System.out.println(""+tester.getStudent().getAbsencePercentage());
+
      }
 
 

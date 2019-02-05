@@ -7,6 +7,7 @@ package schoolapp.bll;
 
 import java.util.ArrayList;
 import schoolapp.be.Attendance;
+import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
 import schoolapp.dal.SchoolAppDAL;
 
@@ -27,5 +28,10 @@ public class SchoolAppManager
     public Student getStudent()
     {
         return dal.getStudent();
+    }
+    
+    public ArrayList<SchoolClass> getSchoolClasses()
+    {
+        return dal.getSchoolClasses();
     }
 }
