@@ -22,11 +22,13 @@ public class SchoolAppDAL
     private Student c;
     
     private SchoolClass one;
+    private SchoolClass two;
     private ArrayList<SchoolClass> allClasses;
 
     public SchoolAppDAL()
     {
         one=new SchoolClass("Hold 1");
+        two = new SchoolClass("Hold 2");
         allClasses = new ArrayList<>();
         s = new Student("Wilhelm", 2, "wilhelm@msn.com", "Hold 1");
         // Setup mockup dates
@@ -101,7 +103,10 @@ public class SchoolAppDAL
         one.addStudent(c);
         one.addStudent(s);
         
+        two.addStudent(s);
+        
         allClasses.add(one);
+        allClasses.add(two);
         
 
         

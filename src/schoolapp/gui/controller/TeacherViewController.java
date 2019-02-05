@@ -7,6 +7,9 @@ package schoolapp.gui.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -19,6 +22,7 @@ import javafx.scene.input.MouseEvent;
 import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
 import schoolapp.gui.model.SchoolAppModel;
+import static sun.management.snmp.jvminstr.JvmThreadInstanceEntryImpl.ThreadStateMap.Byte0.runnable;
 
 /**
  * FXML Controller class
@@ -44,6 +48,7 @@ public class TeacherViewController implements Initializable {
     
     private ObservableList<Student> curClass;
 
+
     /**
      * Initializes the controller class.
      */
@@ -60,18 +65,30 @@ public class TeacherViewController implements Initializable {
         
         
         classChooser.setItems(model.getAllClasses());
- 
-    }    
+        
+        classChooser.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>(){
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
+            {
+                Platform.runLater(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                       setTableView(); 
+                    }
+                });
+            
+                }
 
-    @FXML
-    private void chooseClass(MouseEvent event)
-    {
-     SchoolClass x = classChooser.getSelectionModel().getSelectedItem();
-        if(x!=null)
-        {
-            curClass=FXCollections.observableArrayList(x.getAllStudents());
+    
+        });
+   
+}
+        private void setTableView()
+            {
+            curClass=FXCollections.observableArrayList(classChooser.getSelectionModel().getSelectedItem().getAllStudents());
             tableView.setItems(curClass);
-        }
-    }
+            }
     
 }
