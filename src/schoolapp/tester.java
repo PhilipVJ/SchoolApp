@@ -5,7 +5,7 @@
  */
 package schoolapp;
 
-import schoolapp.be.student;
+import schoolapp.dal.SchoolAppDAL;
 
 /**
  *
@@ -14,10 +14,9 @@ import schoolapp.be.student;
 public class tester
 {
      public static void main (String[] args) {
-         student s = new student("Wilhelm", 2, "wilhelm@msn.com");
-         System.out.println("name  "+s.getName());
-         System.out.println("ID  "+s.getId());
-         System.out.println("was here  "+s.getWasHere());
+
+SchoolAppDAL tester = new SchoolAppDAL();
+         System.out.println(""+tester.getStudent().getAbsencePercentage());
      }
 
 

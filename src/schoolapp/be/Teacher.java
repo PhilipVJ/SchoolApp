@@ -11,11 +11,11 @@ import java.util.ArrayList;
  *
  * @author Christian Occhionero
  */
-public class teacher extends person
+public class Teacher extends Person
 {
 private ArrayList<String> classes;
 
- public teacher (String name, int id, String email)
+ public Teacher (String name, int id, String email)
     {
        super(name,  id, email);
         classes = new ArrayList<>();

@@ -6,19 +6,20 @@
 package schoolapp.be;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
  * @author Christian Occhionero
  */
-public class person
+public class Person
 {
     String name; 
-    private boolean wasHere;
+   
     int id; 
     private String email;
     
-       public person (String name, int id, String email)
+       public Person (String name, int id, String email)
     {
         this.name = name;
         this.id = id;
@@ -38,4 +39,6 @@ public class person
     {
         this.email = email;
     }
+    
+
 }
