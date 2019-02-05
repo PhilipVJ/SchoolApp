@@ -6,13 +6,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="566.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schoolapp.gui.controller.MainViewController">
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schoolapp.gui.controller.MainViewController">
     <children>
-        <Button fx:id="button" layoutX="295.0" layoutY="389.0" onAction="#logIn" text="Log ind" AnchorPane.bottomAnchor="146.0" AnchorPane.leftAnchor="295.0" AnchorPane.rightAnchor="295.0" AnchorPane.topAnchor="389.0" />
+        <Button fx:id="button" layoutX="252.0" layoutY="386.0" onAction="#logIn" prefHeight="31.0" prefWidth="96.0" text="Log ind" AnchorPane.bottomAnchor="149.0" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="252.0" AnchorPane.topAnchor="386.0" />
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <PasswordField layoutX="237.0" layoutY="340.0" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="236.0" AnchorPane.topAnchor="340.0" />
       <TextField layoutX="237.0" layoutY="268.0" AnchorPane.bottomAnchor="267.0" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="236.0" AnchorPane.topAnchor="268.0" />
-      <Label layoutX="237.0" layoutY="236.0" text="Brugernavn" AnchorPane.bottomAnchor="309.0" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="347.0" AnchorPane.topAnchor="236.0" />
-      <Label layoutX="237.0" layoutY="308.0" text="Adgangskode" AnchorPane.bottomAnchor="237.0" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="331.0" AnchorPane.topAnchor="308.0" />
+      <Label layoutX="237.0" layoutY="236.0" prefHeight="21.0" prefWidth="147.0" text="Brugernavn" AnchorPane.bottomAnchor="309.0" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="236.0" AnchorPane.topAnchor="236.0" />
+      <Label layoutX="237.0" layoutY="308.0" prefHeight="21.0" prefWidth="147.0" text="Adgangskode" AnchorPane.bottomAnchor="237.0" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="236.0" AnchorPane.topAnchor="308.0" />
     </children>
 </AnchorPane>

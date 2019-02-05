@@ -13,11 +13,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import javafx.scene.layout.BorderPane;
 
 /**
  * FXML Controller class
@@ -33,6 +32,7 @@ public class MainViewController implements Initializable
     private Label label;
     @FXML
     private AnchorPane anchorPane;
+    private BorderPane rootLayout;
 
     /**
      * Initializes the controller class.
@@ -48,10 +48,12 @@ public class MainViewController implements Initializable
     {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/StudentView.fxml"));
         Parent root = loader.load();
-        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        rootLayout.setCenter(root);
+    }
 
-        stage.setScene(new Scene(root));
-        stage.show();
+    public void setRootLayout(BorderPane rootLayout)
+    {
+       this.rootLayout=rootLayout;
     }
 
 }

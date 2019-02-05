@@ -5,10 +5,17 @@
  */
 package schoolapp.gui.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import schoolapp.gui.model.SchoolAppModel;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.layout.BorderPane;
 
 /**
  * FXML Controller class
@@ -17,14 +24,40 @@ import schoolapp.gui.model.SchoolAppModel;
  */
 public class RootLayoutController implements Initializable
 {
-private SchoolAppModel model;
+
+    @FXML
+    private BorderPane borderPane;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        model=new SchoolAppModel();
+        // TODO
     }    
+
+    @FXML
+    private void logOut(ActionEvent event) throws IOException
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/MainView.fxml"));
+        Parent root = loader.load();
+        borderPane.setCenter(root);
+    }
+
+    @FXML
+    private void close(ActionEvent event)
+    {
+        Platform.exit();
+    }
+
+    @FXML
+    private void about(ActionEvent event)
+    {
+        Alert about = new Alert(Alert.AlertType.INFORMATION);
+        about.setHeaderText("Om SchoolApp");
+        about.setContentText("Dette program holder styr på dit fravær");
+        about.show();
+    }
     
 }
