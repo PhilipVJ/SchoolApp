@@ -22,18 +22,18 @@ public class student extends person
 // Constructer 
     
     
-     public student (String name, int id, String email)
+    public student(String name, int id, String email) 
     {
-       super(name,  id, email);
+        super(name, id, email);
         daysAttended = new ArrayList<>();
     }
 
-    public boolean getWasHere()
+    public boolean getWasHere() 
     {
         return wasHere;
     }
 
-    public void setWasHere(boolean wasHere)
+    public void setWasHere(boolean wasHere) 
     {
         this.wasHere = wasHere;
     }
