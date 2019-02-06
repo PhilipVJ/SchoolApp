@@ -34,7 +34,7 @@ import schoolapp.be.Attendance;
 import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
 import schoolapp.gui.model.SchoolAppModel;
-import static sun.management.snmp.jvminstr.JvmThreadInstanceEntryImpl.ThreadStateMap.Byte0.runnable;
+
 
 /**
  * FXML Controller class
