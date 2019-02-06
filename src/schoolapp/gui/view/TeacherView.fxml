@@ -36,5 +36,7 @@
           <NumberAxis fx:id="percentage" side="LEFT" />
         </yAxis>
       </LineChart>
+      <Label layoutX="362.0" layoutY="394.0" text="Gennemsnitslig klassefravær" />
+      <Label fx:id="absenceClass" layoutX="400.0" layoutY="429.0" prefHeight="21.0" prefWidth="97.0" />
    </children>
 </AnchorPane>

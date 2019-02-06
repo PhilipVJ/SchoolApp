@@ -6,10 +6,13 @@
 package schoolapp.gui.controller;
 
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -22,6 +25,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -64,6 +68,8 @@ public class TeacherViewController implements Initializable
     private CategoryAxis days;
 
     private ObservableList<String> allOfDays;
+    @FXML
+    private Label absenceClass;
 
     /**
      * Initializes the controller class.
@@ -92,7 +98,14 @@ public class TeacherViewController implements Initializable
                     @Override
                     public void run()
                     {
-                        setTableView();
+                        try
+                        {
+                            setTableView();
+                            calculateAverageAbsence();
+                        } catch (ParseException ex)
+                        {
+                            Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                 });
 
@@ -182,5 +195,17 @@ public class TeacherViewController implements Initializable
 
         chart.getData().add(series);
 
+    }
+    
+    public void calculateAverageAbsence() throws ParseException
+    {
+     ArrayList<Student> allStudents = classChooser.getSelectionModel().getSelectedItem().getAllStudents();
+     double averageAbsence=0;
+     double numberOfStudents=allStudents.size();
+     for(Student x:allStudents)
+     {
+        averageAbsence=averageAbsence+x.getAbPercentage();
+     }
+     absenceClass.setText(""+averageAbsence/numberOfStudents);
     }
 }
