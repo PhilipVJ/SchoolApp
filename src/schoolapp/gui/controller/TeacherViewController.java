@@ -36,7 +36,6 @@ import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
 import schoolapp.gui.model.SchoolAppModel;
 
-
 /**
  * FXML Controller class
  *
@@ -141,6 +140,19 @@ public class TeacherViewController implements Initializable
             }
         });
 
+        String[] dayArray = new String[5];
+        dayArray[0] = "Man";
+        dayArray[1] = "Tir";
+        dayArray[2] = "Ons";
+        dayArray[3] = "Tor";
+        dayArray[4] = "Fre";
+        // Convert it to a list and add it to our ObservableList of days.
+        ArrayList<String> listArray = new ArrayList<>();
+        listArray.addAll(Arrays.asList(dayArray));
+        allWeekDays = FXCollections.observableArrayList(listArray);
+        dayX.setCategories(allWeekDays);
+        dayChart.setTitle("Fravær pr. dag");
+
     }
 
     private void setTableView()
@@ -225,25 +237,13 @@ public class TeacherViewController implements Initializable
 
     private void initStudentBarChart()
     {
-        dayX.getCategories().clear();
+
         dayChart.getData().clear();
         // Gets the selected student
 
         Student chosenStudent = tableView.getSelectionModel().getSelectedItem();
         if (chosenStudent != null)
         {
-            String[] dayArray = new String[5];
-            dayArray[0] = "Man";
-            dayArray[1] = "Tir";
-            dayArray[2] = "Ons";
-            dayArray[3] = "Tor";
-            dayArray[4] = "Fre";
-            // Convert it to a list and add it to our ObservableList of days.
-            ArrayList<String> listArray = new ArrayList<>();
-            listArray.addAll(Arrays.asList(dayArray));
-            allWeekDays = FXCollections.observableArrayList(listArray);
-            dayX.setCategories(allWeekDays);
-            dayChart.setTitle("Fravær pr. dag");
 
             calculateWeekdayAbsence(chosenStudent);
 
