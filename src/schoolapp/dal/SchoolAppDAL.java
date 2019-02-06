@@ -140,5 +140,15 @@ public class SchoolAppDAL
     {
         return allClasses;
     }
+    
+    public boolean checkForSchoolNetWork()
+    {
+        return true;
+    }
+
+    public boolean checkForDailtyAttendance()
+    {
+        return false;
+    }
 
 }

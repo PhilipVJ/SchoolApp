@@ -8,6 +8,7 @@ package schoolapp.gui.controller;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.ResourceBundle;
 import javafx.beans.property.StringProperty;
@@ -19,6 +20,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -57,7 +59,11 @@ public class StudentViewController implements Initializable
 
     public void initialize(URL url, ResourceBundle rb)
     {
+        
+        
+        
         model = new SchoolAppModel();
+        showAlert();
         s = model.getStudent();
         double ab = s.getAbsencePercentage();
         String toShow = String.format("%.1f", ab);
@@ -110,6 +116,16 @@ public class StudentViewController implements Initializable
 
         chart.getData().add(series);
 
+    }
+
+    private void showAlert()
+    {
+      if(model.checkForSchoolNetwork()==true && model.checkForDailyAttendance()==false){
+      Alert showAlert = new Alert(Alert.AlertType.INFORMATION);
+      showAlert.setHeaderText("Fraværs alert");
+      showAlert.setContentText("Du er ikke registreret for i dag - lad mig gøre det for dig!");
+      showAlert.showAndWait();}
+     
     }
 
 }

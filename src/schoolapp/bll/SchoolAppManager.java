@@ -34,4 +34,15 @@ public class SchoolAppManager
     {
         return dal.getSchoolClasses();
     }
+    
+    public boolean checkForSchoolNetwork()
+    {
+        return dal.checkForSchoolNetWork();
+               
+    }
+
+    public boolean checkForDailtyAttendance()
+    {
+       return dal.checkForDailtyAttendance();
+    }
 }

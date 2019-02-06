@@ -51,5 +51,15 @@ public class SchoolAppModel
         return classList;
     }
     
+    public boolean checkForSchoolNetwork()
+    {
+        return manager.checkForSchoolNetwork();
+    }
+
+    public boolean checkForDailyAttendance()
+    {
+        return manager.checkForDailtyAttendance();
+    }
+    
     
 }
