@@ -76,7 +76,7 @@ public class SchoolAppDAL
         c.addAttendance(cal5, true);
         c.addAttendance(cal6, true);
 
-        b = new Student("Carl", 4, "carl@msn.com","Hold 1");
+        b = new Student("Carl", 4, "carl@msn.com","Hold 2");
         // Setup mockup dates
         Calendar bcal = Calendar.getInstance();
         Calendar bcal2 = Calendar.getInstance();
@@ -99,11 +99,10 @@ public class SchoolAppDAL
         b.addAttendance(cal5, false);
         b.addAttendance(cal6, true);
         
-        one.addStudent(b);
-        one.addStudent(c);
         one.addStudent(s);
+        one.addStudent(c);
         
-        two.addStudent(s);
+        two.addStudent(b);
         
         allClasses.add(one);
         allClasses.add(two);
