@@ -85,7 +85,7 @@ public class TeacherViewController implements Initializable
         schoolClass.setCellValueFactory(new PropertyValueFactory<>("schoolClass"));
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
         absence.setCellValueFactory(new PropertyValueFactory<>("abPercentage"));
-
+        absence.setSortType(TableColumn.SortType.DESCENDING);
         classChooser.setItems(model.getAllClasses());
 
         classChooser.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>()
@@ -136,6 +136,8 @@ public class TeacherViewController implements Initializable
     {
         curClass = FXCollections.observableArrayList(classChooser.getSelectionModel().getSelectedItem().getAllStudents());
         tableView.setItems(curClass);
+        tableView.getSortOrder().setAll(absence);
+        
     }
 
     private void initStudentLineChart()
