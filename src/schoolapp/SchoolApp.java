@@ -7,9 +7,16 @@ package schoolapp;
 
 import java.io.IOException;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -42,6 +49,38 @@ public class SchoolApp extends Application
         initView();
 
         primaryStage.show();
+        
+        CreateContextMenu();
+        
+        
+    }
+
+    private void CreateContextMenu()
+    {
+        ContextMenu cMenu = new ContextMenu();
+        MenuItem mItem1 = new MenuItem();
+        mItem1.setText("Close");
+        
+        cMenu.getItems().add(mItem1);
+        
+        rootLayout.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event)
+            {
+                if(event.getButton() == MouseButton.SECONDARY){
+                    cMenu.show(primaryStage, event.getScreenX(), event.getScreenY());
+                }
+            }
+        });
+        
+        mItem1.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent event)
+            {
+                Platform.exit();
+            }
+        });
     }
 
     /**

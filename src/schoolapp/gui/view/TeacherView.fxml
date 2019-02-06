@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -36,7 +37,15 @@
           <NumberAxis fx:id="percentage" side="LEFT" />
         </yAxis>
       </LineChart>
-      <Label layoutX="362.0" layoutY="394.0" text="Gennemsnitslig klassefravær" />
-      <Label fx:id="absenceClass" layoutX="400.0" layoutY="429.0" prefHeight="21.0" prefWidth="97.0" />
+      <Label layoutX="43.0" layoutY="38.0" text="Gennemsnitslig klassefravær" />
+      <Label fx:id="absenceClass" layoutX="75.0" layoutY="87.0" prefHeight="21.0" prefWidth="97.0" />
+      <BarChart fx:id="dayChart" layoutX="307.0" layoutY="387.0" prefHeight="195.0" prefWidth="269.0">
+        <xAxis>
+          <CategoryAxis fx:id="dayX" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="dayY" side="LEFT" />
+        </yAxis>
+      </BarChart>
    </children>
 </AnchorPane>

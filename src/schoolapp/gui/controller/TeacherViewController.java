@@ -20,6 +20,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -68,8 +69,16 @@ public class TeacherViewController implements Initializable
     private CategoryAxis days;
 
     private ObservableList<String> allOfDays;
+
+    private ObservableList<String> allWeekDays;
     @FXML
     private Label absenceClass;
+    @FXML
+    private BarChart<String, Integer> dayChart;
+    @FXML
+    private NumberAxis dayY;
+    @FXML
+    private CategoryAxis dayX;
 
     /**
      * Initializes the controller class.
@@ -125,7 +134,9 @@ public class TeacherViewController implements Initializable
                     public void run()
                     {
                         initStudentLineChart();
+                        initStudentBarChart();
                     }
+
                 });
             }
         });
@@ -137,7 +148,7 @@ public class TeacherViewController implements Initializable
         curClass = FXCollections.observableArrayList(classChooser.getSelectionModel().getSelectedItem().getAllStudents());
         tableView.setItems(curClass);
         tableView.getSortOrder().setAll(absence);
-        
+
     }
 
     private void initStudentLineChart()
@@ -145,20 +156,21 @@ public class TeacherViewController implements Initializable
         clearChart();
         // Gets the selected student
         Student chosenStudent = tableView.getSelectionModel().getSelectedItem();
-        if(chosenStudent!=null){
-        String[] dayArray = new String[chosenStudent.getFullAttendance().size()];
-        for (int i = 0; i < chosenStudent.getFullAttendance().size(); i++)
+        if (chosenStudent != null)
         {
-            dayArray[i] = "" + (i + 1);
-        }
-        // Convert it to a list and add it to our ObservableList of days.
-        ArrayList<String> listArray = new ArrayList<>();
-        listArray.addAll(Arrays.asList(dayArray));
-        allOfDays = FXCollections.observableArrayList(listArray);
-        days.setCategories(allOfDays);
-        chart.setTitle("Fravær");
+            String[] dayArray = new String[chosenStudent.getFullAttendance().size()];
+            for (int i = 0; i < chosenStudent.getFullAttendance().size(); i++)
+            {
+                dayArray[i] = "" + (i + 1);
+            }
+            // Convert it to a list and add it to our ObservableList of days.
+            ArrayList<String> listArray = new ArrayList<>();
+            listArray.addAll(Arrays.asList(dayArray));
+            allOfDays = FXCollections.observableArrayList(listArray);
+            days.setCategories(allOfDays);
+            chart.setTitle("Fravær");
 
-        calculateAbsence(chosenStudent);
+            calculateAbsence(chosenStudent);
         }
     }
 
@@ -167,14 +179,14 @@ public class TeacherViewController implements Initializable
         // clears the chart for previous showings
         days.getCategories().clear();
         chart.getData().clear();
-        if(allOfDays!=null){
-        allOfDays.clear();
+        if (allOfDays != null)
+        {
+            allOfDays.clear();
         }
     }
 
     private void calculateAbsence(Student s)
     {
-
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
         ArrayList<Attendance> allAttendance = s.getFullAttendance();
@@ -191,23 +203,67 @@ public class TeacherViewController implements Initializable
                 daysAttended++;
             }
             int calAttendance = (int) (100 - daysAttended / numberOfDays * 100);
-            System.out.println(""+numberOfDays+"     "+calAttendance);
+            System.out.println("" + numberOfDays + "     " + calAttendance);
             series.getData().add(new XYChart.Data("" + numberOfDays, calAttendance));
         }
 
         chart.getData().add(series);
 
     }
-    
+
     public void calculateAverageAbsence() throws ParseException
     {
-     ArrayList<Student> allStudents = classChooser.getSelectionModel().getSelectedItem().getAllStudents();
-     double averageAbsence=0;
-     double numberOfStudents=allStudents.size();
-     for(Student x:allStudents)
-     {
-        averageAbsence=averageAbsence+x.getAbPercentage();
-     }
-     absenceClass.setText(""+averageAbsence/numberOfStudents);
+        ArrayList<Student> allStudents = classChooser.getSelectionModel().getSelectedItem().getAllStudents();
+        double averageAbsence = 0;
+        double numberOfStudents = allStudents.size();
+        for (Student x : allStudents)
+        {
+            averageAbsence = averageAbsence + x.getAbPercentage();
+        }
+        absenceClass.setText("" + averageAbsence / numberOfStudents);
+    }
+
+    private void initStudentBarChart()
+    {
+        dayX.getCategories().clear();
+        dayChart.getData().clear();
+        // Gets the selected student
+
+        Student chosenStudent = tableView.getSelectionModel().getSelectedItem();
+        if (chosenStudent != null)
+        {
+            String[] dayArray = new String[5];
+            dayArray[0] = "Man";
+            dayArray[1] = "Tir";
+            dayArray[2] = "Ons";
+            dayArray[3] = "Tor";
+            dayArray[4] = "Fre";
+            // Convert it to a list and add it to our ObservableList of days.
+            ArrayList<String> listArray = new ArrayList<>();
+            listArray.addAll(Arrays.asList(dayArray));
+            allWeekDays = FXCollections.observableArrayList(listArray);
+            dayX.setCategories(allWeekDays);
+            dayChart.setTitle("Fravær pr. dag");
+
+            calculateWeekdayAbsence(chosenStudent);
+
+        }
+
+    }
+
+    private void calculateWeekdayAbsence(Student chosenStudent)
+    {
+        XYChart.Series<String, Integer> series = new XYChart.Series<>();
+        ArrayList<Integer> weekDays = chosenStudent.getMostAbsentDay();
+
+        series.getData().add(new XYChart.Data("Man", weekDays.get(0)));
+        series.getData().add(new XYChart.Data("Tir", weekDays.get(1)));
+        series.getData().add(new XYChart.Data("Ons", weekDays.get(2)));
+        series.getData().add(new XYChart.Data("Tors", weekDays.get(3)));
+        series.getData().add(new XYChart.Data("Fre", weekDays.get(4)));
+
+        dayChart.getData().add(series);
+
+        System.out.println("Done");
     }
 }

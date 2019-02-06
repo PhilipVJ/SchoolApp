@@ -82,4 +82,51 @@ public class Student extends Person
         return per;
     }
 
+    public ArrayList<Integer> getMostAbsentDay()
+    {
+        int monday = 0;
+        int tuesday = 0;
+        int wedensday = 0;
+        int thursday = 0;
+        int friday = 0;
+
+        ArrayList<Integer> allDays = new ArrayList<>();
+
+        for (Attendance x : fullAttendance)
+        {
+            if (x.getWasThere() == false)
+            {
+                int day = x.getCurDate().get(Calendar.DAY_OF_WEEK);
+                switch (day)
+                {
+
+                    case 2:
+                        monday++;
+                        break;
+                    case 3:
+                        tuesday++;
+                        break;
+                    case 4:
+                        wedensday++;
+                        break;
+                    case 5:
+                        thursday++;
+                        break;
+                    case 6:
+                        friday++;
+                        break;
+
+                }
+            }
+        }
+        System.out.println(""+monday+"   "+tuesday+"    "+wedensday+"    "+thursday+"   "+friday);
+        allDays.add(monday);
+        allDays.add(tuesday);
+        allDays.add(wedensday);
+        allDays.add(thursday);
+        allDays.add(friday);
+
+        return allDays;
+    }
+
 }

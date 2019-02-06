@@ -20,102 +20,122 @@ public class SchoolAppDAL
     private Student s;
     private Student b;
     private Student c;
-    
+
     private SchoolClass one;
     private SchoolClass two;
     private ArrayList<SchoolClass> allClasses;
 
     public SchoolAppDAL()
     {
-        one=new SchoolClass("Hold 1");
+        one = new SchoolClass("Hold 1");
         two = new SchoolClass("Hold 2");
         allClasses = new ArrayList<>();
+
+        // Setup mockup dates
+        Calendar eigthfeb = Calendar.getInstance();
+
+        eigthfeb.set(Calendar.SECOND, 0);
+        eigthfeb.set(Calendar.MINUTE, 13);
+        eigthfeb.set(Calendar.HOUR, 7);
+        eigthfeb.set(Calendar.AM_PM, Calendar.AM);
+        eigthfeb.set(Calendar.MONTH, Calendar.FEBRUARY);
+        eigthfeb.set(Calendar.DAY_OF_MONTH, 8);
+        eigthfeb.set(Calendar.YEAR, 2019);
+
+        Calendar seventhfeb = Calendar.getInstance();
+
+        seventhfeb.set(Calendar.SECOND, 0);
+        seventhfeb.set(Calendar.MINUTE, 13);
+        seventhfeb.set(Calendar.HOUR, 7);
+        seventhfeb.set(Calendar.AM_PM, Calendar.AM);
+        seventhfeb.set(Calendar.MONTH, Calendar.FEBRUARY);
+        seventhfeb.set(Calendar.DAY_OF_MONTH, 7);
+        seventhfeb.set(Calendar.YEAR, 2019);
+
+        Calendar sixthfeb = Calendar.getInstance();
+
+        sixthfeb.set(Calendar.SECOND, 0);
+        sixthfeb.set(Calendar.MINUTE, 13);
+        sixthfeb.set(Calendar.HOUR, 7);
+        sixthfeb.set(Calendar.AM_PM, Calendar.AM);
+        sixthfeb.set(Calendar.MONTH, Calendar.FEBRUARY);
+        sixthfeb.set(Calendar.DAY_OF_MONTH, 6);
+        sixthfeb.set(Calendar.YEAR, 2019);
+
+        Calendar fifthfeb = Calendar.getInstance();
+
+        fifthfeb.set(Calendar.SECOND, 0);
+        fifthfeb.set(Calendar.MINUTE, 13);
+        fifthfeb.set(Calendar.HOUR, 7);
+        fifthfeb.set(Calendar.AM_PM, Calendar.AM);
+        fifthfeb.set(Calendar.MONTH, Calendar.FEBRUARY);
+        fifthfeb.set(Calendar.DAY_OF_MONTH, 5);
+        fifthfeb.set(Calendar.YEAR, 2019);
+
+        Calendar fourthfeb = Calendar.getInstance();
+
+        fourthfeb.set(Calendar.SECOND, 0);
+        fourthfeb.set(Calendar.MINUTE, 13);
+        fourthfeb.set(Calendar.HOUR, 7);
+        fourthfeb.set(Calendar.AM_PM, Calendar.AM);
+        fourthfeb.set(Calendar.MONTH, Calendar.FEBRUARY);
+        fourthfeb.set(Calendar.DAY_OF_MONTH, 4);
+        fourthfeb.set(Calendar.YEAR, 2019);
+
+        Calendar firstfeb = Calendar.getInstance();
+
+        firstfeb.set(Calendar.SECOND, 0);
+        firstfeb.set(Calendar.MINUTE, 13);
+        firstfeb.set(Calendar.HOUR, 7);
+        firstfeb.set(Calendar.AM_PM, Calendar.AM);
+        firstfeb.set(Calendar.MONTH, Calendar.FEBRUARY);
+        firstfeb.set(Calendar.DAY_OF_MONTH, 1);
+        firstfeb.set(Calendar.YEAR, 2019);
+
         s = new Student("Wilhelm", 2, "wilhelm@msn.com", "Hold 1");
-        // Setup mockup dates
-        Calendar cal = Calendar.getInstance();
-        Calendar cal2 = Calendar.getInstance();
-        Calendar cal3 = Calendar.getInstance();
-        Calendar cal4 = Calendar.getInstance();
-        Calendar cal5 = Calendar.getInstance();
-        Calendar cal6 = Calendar.getInstance();
-        int dayOfMonth = Calendar.DAY_OF_MONTH;
-        cal2.set(Calendar.DAY_OF_MONTH, dayOfMonth - 1);
-        cal3.set(Calendar.DAY_OF_MONTH, dayOfMonth - 2);
-        cal4.set(Calendar.DAY_OF_MONTH, dayOfMonth - 3);
-        cal5.set(Calendar.DAY_OF_MONTH, dayOfMonth - 4);
-        cal6.set(Calendar.DAY_OF_MONTH, dayOfMonth - 5);
         // Adds 'em to the Student
+        s.addAttendance(firstfeb, true);
+        s.addAttendance(fourthfeb, true);
+        s.addAttendance(fifthfeb, true);
+        s.addAttendance(sixthfeb, false);
+        s.addAttendance(seventhfeb, true);
+        s.addAttendance(eigthfeb, true);
 
-        s.addAttendance(cal, true);
-        s.addAttendance(cal2, true);
-        s.addAttendance(cal3, true);
-        s.addAttendance(cal4, false);
-        s.addAttendance(cal5, true);
-        s.addAttendance(cal6, true);
-
-        c = new Student("Jens", 3, "jens@msn.com","Hold 1");
+        c = new Student("Jens", 3, "jens@msn.com", "Hold 1");
         // Setup mockup dates
-        Calendar ccal = Calendar.getInstance();
-        Calendar ccal2 = Calendar.getInstance();
-        Calendar ccal3 = Calendar.getInstance();
-        Calendar ccal4 = Calendar.getInstance();
-        Calendar ccal5 = Calendar.getInstance();
-        Calendar ccal6 = Calendar.getInstance();
-        int cdayOfMonth = Calendar.DAY_OF_MONTH;
-        ccal2.set(Calendar.DAY_OF_MONTH, dayOfMonth - 1);
-        ccal3.set(Calendar.DAY_OF_MONTH, dayOfMonth - 2);
-        ccal4.set(Calendar.DAY_OF_MONTH, dayOfMonth - 3);
-        ccal5.set(Calendar.DAY_OF_MONTH, dayOfMonth - 4);
-        ccal6.set(Calendar.DAY_OF_MONTH, dayOfMonth - 5);
+
         // Adds 'em to the Student
+        c.addAttendance(firstfeb, false);
+        c.addAttendance(fourthfeb, false);
+        c.addAttendance(fifthfeb, true);
+        c.addAttendance(sixthfeb, true);
+        c.addAttendance(seventhfeb, true);
+        c.addAttendance(eigthfeb, true);
 
-        c.addAttendance(cal, true);
-        c.addAttendance(cal2, false);
-        c.addAttendance(cal3, true);
-        c.addAttendance(cal4, false);
-        c.addAttendance(cal5, true);
-        c.addAttendance(cal6, true);
+        b = new Student("Carl", 4, "carl@msn.com", "Hold 2");
 
-        b = new Student("Carl", 4, "carl@msn.com","Hold 2");
-        // Setup mockup dates
-        Calendar bcal = Calendar.getInstance();
-        Calendar bcal2 = Calendar.getInstance();
-        Calendar bcal3 = Calendar.getInstance();
-        Calendar bcal4 = Calendar.getInstance();
-        Calendar bcal5 = Calendar.getInstance();
-        Calendar bcal6 = Calendar.getInstance();
-        int bdayOfMonth = Calendar.DAY_OF_MONTH;
-        bcal2.set(Calendar.DAY_OF_MONTH, dayOfMonth - 1);
-        bcal3.set(Calendar.DAY_OF_MONTH, dayOfMonth - 2);
-        bcal4.set(Calendar.DAY_OF_MONTH, dayOfMonth - 3);
-        bcal5.set(Calendar.DAY_OF_MONTH, dayOfMonth - 4);
-        bcal6.set(Calendar.DAY_OF_MONTH, dayOfMonth - 5);
-        // Adds 'em to the Student
+        b.addAttendance(firstfeb, false);
+        b.addAttendance(fourthfeb, true);
+        b.addAttendance(fifthfeb, true);
+        b.addAttendance(sixthfeb, true);
+        b.addAttendance(seventhfeb, true);
+        b.addAttendance(eigthfeb, true);
 
-        b.addAttendance(cal, true);
-        b.addAttendance(cal2, false);
-        b.addAttendance(cal3, true);
-        b.addAttendance(cal4, false);
-        b.addAttendance(cal5, false);
-        b.addAttendance(cal6, true);
-        
         one.addStudent(s);
         one.addStudent(c);
-        
+
         two.addStudent(b);
-        
+
         allClasses.add(one);
         allClasses.add(two);
-        
 
-        
     }
 
     public Student getStudent()
     {
         return s;
     }
-    
+
     public ArrayList<SchoolClass> getSchoolClasses()
     {
         return allClasses;
