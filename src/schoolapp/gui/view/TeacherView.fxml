@@ -14,7 +14,6 @@
 
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schoolapp.gui.controller.TeacherViewController">
    <children>
-      <Button layoutX="528.0" layoutY="22.0" mnemonicParsing="false" text="Log ud" />
       <ChoiceBox fx:id="classChooser" layoutX="412.0" layoutY="108.0" prefWidth="150.0" />
       <Label layoutX="14.0" layoutY="369.0" text="Attendance %">
          <font>

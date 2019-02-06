@@ -44,7 +44,7 @@ public class MainViewController implements Initializable
     }
 
     @FXML
-    private void logIn(ActionEvent event) throws IOException
+    private void openStudent(ActionEvent event) throws IOException
     {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/StudentView.fxml"));
         Parent root = loader.load();
