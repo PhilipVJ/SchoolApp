@@ -63,6 +63,8 @@ public class StudentViewController implements Initializable
         String toShow = String.format("%.1f", ab);
         absence.setText(toShow + "%");
         name.setText(s.getName());
+        date.setSortType(TableColumn.SortType.DESCENDING);
+        
 
         // init tableview
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
@@ -82,6 +84,7 @@ public class StudentViewController implements Initializable
         chart.setTitle("Fravær");
     
         calculateAbsence();
+        tableView.getSortOrder().setAll(date);
 
     }
 
