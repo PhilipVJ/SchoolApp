@@ -89,7 +89,7 @@ public class StudentViewController implements Initializable
     {
         XYChart.Series<String, Double> series = new XYChart.Series<>();
         ArrayList<Attendance> allAttendance = s.getFullAttendance();
-        Collections.reverse(allAttendance);
+
         int numberOfDays = 0;
         double daysAttended = 0;
 
