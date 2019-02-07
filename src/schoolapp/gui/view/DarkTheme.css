@@ -4,40 +4,38 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 07-02-2019, 00:01:55
-    Author     : Henrik Ferrari
+    Created on : 04-02-2019, 12:01:22
+    Author     : Caspe
 */
-
 .background {
-    -fx-background-color: #494DFF;
-    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
+    -fx-background-color: #1d1d1d;
 }
 
 .label {
     -fx-font-size: 11pt;
     -fx-font-family: "Segoe UI Semibold";
-    -fx-text-fill: #FFDC49;
+    -fx-text-fill: white;
     -fx-opacity: 0.6;
 }
 
 .label-bright {
     -fx-font-size: 11pt;
     -fx-font-family: "Segoe UI Semibold";
-    -fx-text-fill: #FFDC49;
+    -fx-text-fill: white;
     -fx-opacity: 1;
 }
 
 .label-header {
     -fx-font-size: 32pt;
     -fx-font-family: "Segoe UI Light";
-    -fx-text-fill: #FFDC49;
+    -fx-text-fill: white;
     -fx-opacity: 1;
 }
 
 .table-view {
     -fx-base: #1d1d1d;
-    -fx-control-inner-background: #2225B2;
-    -fx-background-color: #2225B2;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
     -fx-padding: 5;
@@ -61,8 +59,8 @@ and open the template in the editor.
 
 .table-view .column-header .label {
     -fx-font-size: 20pt;
-    -fx-font-family: "Segoe UI Semibold";
-    -fx-text-fill: #FFDC49;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
     -fx-alignment: center-left;
     -fx-opacity: 1;
 }
@@ -71,23 +69,32 @@ and open the template in the editor.
     -fx-background-color: -fx-focus-color;
 }
 
+.split-pane:horizontal > .split-pane-divider {
+    -fx-border-color: transparent #1d1d1d transparent #1d1d1d;
+    -fx-background-color: transparent, derive(#1d1d1d,20%);
+}
+
+.split-pane {
+    -fx-padding: 1 0 0 0;
+}
+
 .menu-bar {
-    -fx-background-color: derive(#494DFF,20%);
+    -fx-background-color: derive(#1d1d1d,20%);
 }
 
 .context-menu {
-    -fx-background-color: derive(#494DFF,50%);
+    -fx-background-color: derive(#1d1d1d,50%);
 }
 
 .menu-bar .label {
     -fx-font-size: 14pt;
     -fx-font-family: "Segoe UI Light";
-    -fx-text-fill: #FFDC49;
+    -fx-text-fill: white;
     -fx-opacity: 0.9;
 }
 
 .menu .left-container {
-    -fx-background-color: wheat;
+    -fx-background-color: black;
 }
 
 .text-field {
@@ -95,33 +102,30 @@ and open the template in the editor.
     -fx-font-family: "Segoe UI Semibold";
 }
 
-.chart {
-    -fx-base: #2225B2;
-    -fx-text-fill: #FFDC49;
-    -fx-tick-label-fill:#FFDC49;
-    -fx-table-cell-border-color: transparent;
-    -fx-table-header-border-color: transparent;
-}
-
+/* 
+ * Metro style Push Button
+ * Author: Pedro Duque Vieira
+ * http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/
+ */
 .button {
     -fx-padding: 5 22 5 22;   
     -fx-border-color: #e2e2e2;
     -fx-border-width: 2;
     -fx-background-radius: 0;
-    -fx-background-color: #494DFF;
+    -fx-background-color: #1d1d1d;
     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     -fx-font-size: 11pt;
-    -fx-text-fill: #FFDC49;
+    -fx-text-fill: #d8d8d8;
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
 
 .button:hover {
-    -fx-background-color: #494dff;
+    -fx-background-color: #3a3a3a;
 }
 
 .button:pressed, .button:default:hover:pressed {
   -fx-background-color: white;
-  -fx-text-fill: #ffbe49;
+  -fx-text-fill: #1d1d1d;
 }
 
 .button:focused {
@@ -140,7 +144,7 @@ and open the template in the editor.
 
 .button:default {
     -fx-background-color: -fx-focus-color;
-    -fx-text-fill: #fbbc51fff;
+    -fx-text-fill: #ffffff;
 }
 
 .button:default:hover {
