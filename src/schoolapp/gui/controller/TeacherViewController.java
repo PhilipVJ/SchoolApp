@@ -79,9 +79,7 @@ public class TeacherViewController implements Initializable
     private CategoryAxis dayX;
     
     private Teacher teacher;
-    @FXML
     private Label tName;
-    @FXML
     private Label tMail;
 
     /**
