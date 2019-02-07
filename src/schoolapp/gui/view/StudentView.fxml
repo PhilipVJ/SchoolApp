@@ -9,18 +9,18 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="600.0" styleClass="background" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schoolapp.gui.controller.StudentViewController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="600.0" styleClass="background" stylesheets="@../Documents/GitHub/SchoolApp/src/schoolapp/gui/view/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schoolapp.gui.controller.StudentViewController">
    <children>
-      <Label layoutX="341.0" layoutY="25.0" scaleX="1.2" scaleY="1.5" text="Nuværende fraværsprocent" />
-      <Label fx:id="absence" layoutX="432.0" layoutY="53.0" prefHeight="31.0" prefWidth="140.0" />
-      <Label fx:id="name" layoutX="26.0" layoutY="14.0" prefHeight="21.0" prefWidth="150.0" />
-      <TableView fx:id="tableView" layoutX="26.0" layoutY="99.0" prefHeight="196.0" prefWidth="546.0">
+      <Label layoutX="341.0" layoutY="25.0" scaleX="1.2" scaleY="1.5" text="Nuværende fraværsprocent" AnchorPane.bottomAnchor="454.0" AnchorPane.leftAnchor="341.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="25.0" />
+      <Label fx:id="absence" layoutX="432.0" layoutY="53.0" prefHeight="31.0" prefWidth="140.0" AnchorPane.bottomAnchor="454.0" AnchorPane.leftAnchor="341.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="25.0" />
+      <Label fx:id="name" layoutX="26.0" layoutY="14.0" prefHeight="21.0" prefWidth="150.0" AnchorPane.bottomAnchor="454.0" AnchorPane.leftAnchor="341.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="25.0" />
+      <TableView fx:id="tableView" layoutX="26.0" layoutY="99.0" prefHeight="196.0" prefWidth="546.0" AnchorPane.bottomAnchor="205.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="99.0">
         <columns>
           <TableColumn fx:id="date" prefWidth="237.0" text="Dato" />
           <TableColumn fx:id="presence" minWidth="0.0" prefWidth="308.0" text="Tilstedeværelse" />
         </columns>
       </TableView>
-      <LineChart fx:id="chart" layoutX="239.0" layoutY="304.0" prefHeight="196.0" prefWidth="347.0">
+      <LineChart fx:id="chart" layoutX="239.0" layoutY="304.0" prefHeight="196.0" prefWidth="347.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="304.0">
         <xAxis>
           <CategoryAxis fx:id="days" side="BOTTOM" styleClass="chart" />
         </xAxis>
@@ -28,6 +28,6 @@
           <NumberAxis fx:id="percentage" side="LEFT" styleClass="chart" />
         </yAxis>
       </LineChart>
-      <Button layoutX="26.0" layoutY="315.0" mnemonicParsing="false" onAction="#askForAttendance" prefHeight="31.0" prefWidth="203.0" text="Anmod om godkendelse" />
+      <Button layoutX="26.0" layoutY="315.0" mnemonicParsing="false" onAction="#askForAttendance" prefHeight="31.0" prefWidth="203.0" text="Anmod om godkendelse" AnchorPane.bottomAnchor="154.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="371.0" AnchorPane.topAnchor="315.0" />
    </children>
 </AnchorPane>
