@@ -134,13 +134,13 @@ and open the template in the editor.
 
 .button:disabled, .button:default:disabled {
     -fx-opacity: 0.4;
-    -fx-background-color: #1d1d1d;
+    -fx-background-color: #494dff;
     -fx-text-fill: white;
 }
 
 .button:default {
     -fx-background-color: -fx-focus-color;
-    -fx-text-fill: #fbbc51fff;
+    -fx-text-fill: #fbbc51;
 }
 
 .button:default:hover {
