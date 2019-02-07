@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import schoolapp.be.Attendance;
 import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
+import schoolapp.be.Teacher;
 import schoolapp.bll.SchoolAppManager;
 
 /**
@@ -25,6 +26,7 @@ public class SchoolAppModel
     private Student s;
     private ObservableList<Attendance> oList;
     private ObservableList<SchoolClass> classList;
+    private Teacher t;
 
     public SchoolAppModel()
     {
@@ -47,8 +49,7 @@ public class SchoolAppModel
     public ObservableList<SchoolClass> getAllClasses()
     {
         
-        classList = FXCollections.observableArrayList(manager.getSchoolClasses());
-        System.out.println(""+classList.size());
+   
         return classList;
     }
     
@@ -65,6 +66,14 @@ public class SchoolAppModel
     public void askForAttendance(int id, Attendance chosenAttendance)
     {
         manager.askForAttendance(id,chosenAttendance);
+    }
+
+    public Teacher getTeacher()
+    {
+        Teacher t1 = manager.getTeacher();
+        classList = FXCollections.observableArrayList(manager.getTeacher().getAllClasses());
+        t=t1;
+        return t1;
     }
     
     

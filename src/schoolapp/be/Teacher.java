@@ -13,11 +13,21 @@ import java.util.ArrayList;
  */
 public class Teacher extends Person
 {
-private ArrayList<String> classes;
+private ArrayList<SchoolClass> classes;
 
  public Teacher (String name, int id, String email)
     {
        super(name,  id, email);
         classes = new ArrayList<>();
     }
+ 
+ public void addClass(SchoolClass classToAdd)
+ {
+     classes.add(classToAdd);
+ }
+ 
+ public ArrayList<SchoolClass> getAllClasses()
+ {
+     return classes;
+ }
 }

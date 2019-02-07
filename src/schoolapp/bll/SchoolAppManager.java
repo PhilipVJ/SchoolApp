@@ -10,6 +10,7 @@ import java.util.Calendar;
 import schoolapp.be.Attendance;
 import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
+import schoolapp.be.Teacher;
 import schoolapp.dal.SchoolAppDAL;
 
 /**
@@ -31,11 +32,7 @@ public class SchoolAppManager
         return dal.getStudent(id);
     }
     
-    public ArrayList<SchoolClass> getSchoolClasses()
-    {
-        return dal.getSchoolClasses();
-    }
-    
+
     public boolean checkForSchoolNetwork()
     {
         return dal.checkForSchoolNetWork();
@@ -50,5 +47,10 @@ public class SchoolAppManager
     public void askForAttendance(int id, Attendance chosenAttendance)
     {
         dal.askForAttendance(id, chosenAttendance);
+    }
+
+    public Teacher getTeacher()
+    {
+       return dal.getTeacher();
     }
 }
