@@ -11,8 +11,7 @@ import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
 
 /**
- *
- * @author Christian Occhionero
+ *This class contains mockdata which is sent to the GUI
  */
 public class SchoolAppDAL implements DAOInterface
 {

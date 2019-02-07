@@ -17,12 +17,36 @@ import schoolapp.be.Student;
 public interface DAOInterface
 {
 
+    /**
+     * Returns false if the user hasn't registered his/hers attendance
+     *
+     * @param date
+     * @return
+     */
     boolean checkForDailtyAttendance(Calendar date);
+
+    /**
+     * Returns true if the user is on the school network
+     *
+     * @return
+     */
 
     boolean checkForSchoolNetWork();
 
+    /**
+     * Returns all classes
+     *
+     * @return
+     */
+
     ArrayList<SchoolClass> getSchoolClasses();
 
+    /**
+     * Returns the student with the given ID
+     *
+     * @param id
+     * @return
+     */
     Student getStudent(int id);
-    
+
 }
