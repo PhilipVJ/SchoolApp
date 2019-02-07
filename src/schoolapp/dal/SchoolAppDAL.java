@@ -14,7 +14,7 @@ import schoolapp.be.Student;
  *
  * @author Christian Occhionero
  */
-public class SchoolAppDAL
+public class SchoolAppDAL implements DAOInterface
 {
 
     private Student s;
@@ -131,22 +131,26 @@ public class SchoolAppDAL
 
     }
 
-    public Student getStudent()
+    @Override
+    public Student getStudent(int id)
     {
         return s;
     }
 
+    @Override
     public ArrayList<SchoolClass> getSchoolClasses()
     {
         return allClasses;
     }
     
+    @Override
     public boolean checkForSchoolNetWork()
     {
         return true;
     }
 
-    public boolean checkForDailtyAttendance()
+    @Override
+    public boolean checkForDailtyAttendance(Calendar date)
     {
         return false;
     }

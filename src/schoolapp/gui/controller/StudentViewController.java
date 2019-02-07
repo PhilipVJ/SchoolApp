@@ -63,7 +63,7 @@ public class StudentViewController implements Initializable
 
         model = new SchoolAppModel();
         showAlert();
-        s = model.getStudent();
+        s = model.getStudent(1);
         double ab = s.getAbsencePercentage();
         String toShow = String.format("%.1f", ab);
         absence.setText(toShow + "%");
@@ -118,7 +118,7 @@ public class StudentViewController implements Initializable
 
     private void showAlert()
     {
-        if (model.checkForSchoolNetwork() == true && model.checkForDailyAttendance() == false)
+        if (model.checkForSchoolNetwork() == true && model.checkForDailyAttendance(Calendar.getInstance()) == false)
         {
             Alert showAlert = new Alert(Alert.AlertType.INFORMATION);
             showAlert.setHeaderText("Fraværs alert");

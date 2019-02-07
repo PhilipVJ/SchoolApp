@@ -6,6 +6,7 @@
 package schoolapp.gui.model;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import schoolapp.be.Attendance;
@@ -28,13 +29,13 @@ public class SchoolAppModel
     public SchoolAppModel()
     {
         this.manager = new SchoolAppManager();
-        s = manager.getStudent();
+        s = manager.getStudent(1);
         oList = FXCollections.observableArrayList(s.getFullAttendance());
     }
 
-    public Student getStudent()
+    public Student getStudent(int id)
     {
-        return manager.getStudent();
+        return manager.getStudent(1);
 
     }
 
@@ -56,9 +57,9 @@ public class SchoolAppModel
         return manager.checkForSchoolNetwork();
     }
 
-    public boolean checkForDailyAttendance()
+    public boolean checkForDailyAttendance(Calendar date)
     {
-        return manager.checkForDailtyAttendance();
+        return manager.checkForDailtyAttendance(date);
     }
     
     

@@ -6,6 +6,7 @@
 package schoolapp.bll;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import schoolapp.be.Attendance;
 import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
@@ -25,9 +26,9 @@ public class SchoolAppManager
         this.dal = new SchoolAppDAL();
     }
     
-    public Student getStudent()
+    public Student getStudent(int id)
     {
-        return dal.getStudent();
+        return dal.getStudent(id);
     }
     
     public ArrayList<SchoolClass> getSchoolClasses()
@@ -41,8 +42,8 @@ public class SchoolAppManager
                
     }
 
-    public boolean checkForDailtyAttendance()
+    public boolean checkForDailtyAttendance(Calendar date)
     {
-       return dal.checkForDailtyAttendance();
+       return dal.checkForDailtyAttendance(date);
     }
 }
