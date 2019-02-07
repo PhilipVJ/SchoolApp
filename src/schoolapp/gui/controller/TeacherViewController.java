@@ -9,7 +9,6 @@ import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,7 +29,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import schoolapp.be.Attendance;
 import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
@@ -95,6 +93,8 @@ public class TeacherViewController implements Initializable
         absence.setCellValueFactory(new PropertyValueFactory<>("abPercentage"));
         absence.setSortType(TableColumn.SortType.DESCENDING);
         classChooser.setItems(model.getAllClasses());
+        chart.setTitle("Fravær");
+        dayChart.setTitle("Fravær pr. dag");
 
         classChooser.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>()
         {
@@ -151,7 +151,7 @@ public class TeacherViewController implements Initializable
         listArray.addAll(Arrays.asList(dayArray));
         allWeekDays = FXCollections.observableArrayList(listArray);
         dayX.setCategories(allWeekDays);
-        dayChart.setTitle("Fravær pr. dag");
+        
 
     }
 
@@ -180,7 +180,7 @@ public class TeacherViewController implements Initializable
             listArray.addAll(Arrays.asList(dayArray));
             allOfDays = FXCollections.observableArrayList(listArray);
             days.setCategories(allOfDays);
-            chart.setTitle("Fravær");
+            
 
             calculateAbsence(chosenStudent);
         }
