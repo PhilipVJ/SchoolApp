@@ -10,14 +10,14 @@
 
 <AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="653.0" prefWidth="600.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schoolapp.gui.controller.MainViewController">
     <children>
-        <Button fx:id="button" layoutX="341.0" layoutY="425.0" onAction="#openStudent" prefHeight="46.0" prefWidth="136.0" styleClass="chart" stylesheets="@Style.css" text="Student" AnchorPane.bottomAnchor="412.0" AnchorPane.leftAnchor="336.0" AnchorPane.rightAnchor="128.0" AnchorPane.topAnchor="420.0" />
+        <Button fx:id="button" layoutX="285.0" layoutY="404.0" onAction="#openStudent" prefHeight="46.0" prefWidth="136.0" styleClass="chart" stylesheets="@Style.css" text="Student" AnchorPane.bottomAnchor="439.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="405.0" />
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <PasswordField layoutX="238.0" layoutY="325.0" prefHeight="45.0" prefWidth="130.0" AnchorPane.bottomAnchor="489.0" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="242.0" AnchorPane.topAnchor="325.0" />
-      <TextField layoutX="234.0" layoutY="250.0" prefHeight="47.0" prefWidth="133.0" AnchorPane.bottomAnchor="582.0" AnchorPane.leftAnchor="229.0" AnchorPane.rightAnchor="238.0" AnchorPane.topAnchor="245.0" />
-      <Label layoutX="215.0" layoutY="206.0" prefHeight="39.0" prefWidth="120.0" text="Brugernavn" AnchorPane.bottomAnchor="621.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="201.0" />
-      <Label layoutX="215.0" layoutY="303.0" prefHeight="37.0" prefWidth="112.0" text="Adgangskode" AnchorPane.bottomAnchor="544.0" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="283.0" AnchorPane.topAnchor="303.0" />
-      <Button layoutX="191.0" layoutY="417.0" mnemonicParsing="false" onAction="#openTeacher" prefHeight="54.0" prefWidth="120.0" styleClass="chart" stylesheets="@Style.css" text="Teacher" AnchorPane.bottomAnchor="412.0" AnchorPane.leftAnchor="186.0" AnchorPane.rightAnchor="294.0" AnchorPane.topAnchor="412.0" />
-      <Label layoutX="233.0" layoutY="113.0" prefHeight="49.0" prefWidth="196.0" text="Log ind som..." AnchorPane.bottomAnchor="704.0" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="176.0" AnchorPane.topAnchor="108.0">
+      <PasswordField layoutX="238.0" layoutY="325.0" prefHeight="45.0" prefWidth="130.0" AnchorPane.bottomAnchor="484.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="350.0" />
+      <TextField layoutX="234.0" layoutY="250.0" prefHeight="47.0" prefWidth="133.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="260.0" />
+      <Label layoutX="151.0" layoutY="220.0" prefHeight="39.0" prefWidth="120.0" text="Brugernavn" AnchorPane.leftAnchor="151.0" />
+      <Label layoutX="152.0" layoutY="317.0" prefHeight="37.0" prefWidth="112.0" text="Adgangskode" AnchorPane.leftAnchor="150.0" />
+      <Button layoutX="155.0" layoutY="405.0" mnemonicParsing="false" onAction="#openTeacher" prefHeight="54.0" prefWidth="120.0" styleClass="chart" stylesheets="@Style.css" text="Teacher" AnchorPane.bottomAnchor="439.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="405.0" />
+      <Label layoutX="180.0" layoutY="144.0" prefHeight="62.0" prefWidth="282.0" styleClass="label-header" text="Log ind som..." AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="138.0">
          <font>
             <Font size="24.0" />
          </font>
