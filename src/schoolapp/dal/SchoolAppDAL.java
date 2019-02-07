@@ -7,14 +7,14 @@ package schoolapp.dal;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import schoolapp.be.Attendance;
 import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
 
 /**
- *
- * @author Christian Occhionero
+ *This class contains mockdata which is sent to the GUI
  */
-public class SchoolAppDAL
+public class SchoolAppDAL implements DAOInterface
 {
 
     private Student s;
@@ -131,24 +131,33 @@ public class SchoolAppDAL
 
     }
 
-    public Student getStudent()
+    @Override
+    public Student getStudent(int id)
     {
         return s;
     }
 
+    @Override
     public ArrayList<SchoolClass> getSchoolClasses()
     {
         return allClasses;
     }
     
+    @Override
     public boolean checkForSchoolNetWork()
     {
         return true;
     }
 
-    public boolean checkForDailtyAttendance()
+    @Override
+    public boolean checkForDailtyAttendance(Calendar date)
     {
         return false;
+    }
+
+    public void askForAttendance(int id, Attendance chosenAttendance)
+    {
+        
     }
 
 }

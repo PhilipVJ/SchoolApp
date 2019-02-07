@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.CategoryAxis;
@@ -59,18 +60,15 @@ public class StudentViewController implements Initializable
 
     public void initialize(URL url, ResourceBundle rb)
     {
-        
-        
-        
+
         model = new SchoolAppModel();
         showAlert();
-        s = model.getStudent();
+        s = model.getStudent(1);
         double ab = s.getAbsencePercentage();
         String toShow = String.format("%.1f", ab);
         absence.setText(toShow + "%");
         name.setText(s.getName());
         date.setSortType(TableColumn.SortType.DESCENDING);
-        
 
         // init tableview
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
@@ -88,7 +86,7 @@ public class StudentViewController implements Initializable
         allOfDays.addAll(Arrays.asList(dayArray));
         days.setCategories(allOfDays);
         chart.setTitle("Fravær");
-    
+
         calculateAbsence();
         tableView.getSortOrder().setAll(date);
 
@@ -120,12 +118,32 @@ public class StudentViewController implements Initializable
 
     private void showAlert()
     {
-      if(model.checkForSchoolNetwork()==true && model.checkForDailyAttendance()==false){
-      Alert showAlert = new Alert(Alert.AlertType.INFORMATION);
-      showAlert.setHeaderText("Fraværs alert");
-      showAlert.setContentText("Du er ikke registreret for i dag - lad mig gøre det for dig!");
-      showAlert.showAndWait();}
-     
+        if (model.checkForSchoolNetwork() == true && model.checkForDailyAttendance(Calendar.getInstance()) == false)
+        {
+            Alert showAlert = new Alert(Alert.AlertType.INFORMATION);
+            showAlert.setHeaderText("Fraværs alert");
+            showAlert.setContentText("Du er ikke registreret for i dag - lad mig gøre det for dig!");
+            showAlert.showAndWait();
+        }
+
     }
+
+    @FXML
+    private void askForAttendance(ActionEvent event)
+    {
+        Attendance chosenAttendance = tableView.getSelectionModel().getSelectedItem();
+        
+        if(chosenAttendance!=null && chosenAttendance.getWasThere()==false && chosenAttendance.getRequestAttendance()==false){
+        Alert showAlert = new Alert(Alert.AlertType.INFORMATION);
+        showAlert.setHeaderText("Anmodning om godkendelse");
+        showAlert.setContentText("Din anmodning om godkendelse af fravær d. "+chosenAttendance.getDate()+" er sendt til din lærer!");
+        showAlert.showAndWait();
+        chosenAttendance.setAttendance("Fravær (Anmodet om godkendelse)");
+        chosenAttendance.setRequestAttendance(true);
+        model.askForAttendance(s.getId(), chosenAttendance);
+        tableView.refresh();
+        }
+    }
+
 
 }
