@@ -1,0 +1,38 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 07-02-2019, 00:01:55
+    Author     : Henrik Ferrari
+*/
+
+.background {
+    -fx-background-color: #494DFF;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
+}
+
+.label {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: #FFDC49;
+    -fx-opacity: 0.6;
+}
+
+.table-view {
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #2225B2;
+    -fx-background-color: #2225B2;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+}
+
+.chart {
+    -fx-base: #2225B2;
+    -fx-text-fill: #FFDC49;
+    -fx-tick-label-fill:#FFDC49;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+}
