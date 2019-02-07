@@ -48,7 +48,7 @@ and open the template in the editor.
 }
 
 .table-view .column-header, .table-view .filler {
-    -fx-size: 35;
+    -fx-size: 30;
     -fx-border-width: 0 0 1 0;
     -fx-background-color: transparent;
     -fx-border-color: 
@@ -60,7 +60,7 @@ and open the template in the editor.
 }
 
 .table-view .column-header .label {
-    -fx-font-size: 20pt;
+    -fx-font-size: 15pt;
     -fx-font-family: "Segoe UI Semibold";
     -fx-text-fill: #FFDC49;
     -fx-alignment: center-left;
@@ -80,14 +80,14 @@ and open the template in the editor.
 }
 
 .menu-bar .label {
-    -fx-font-size: 14pt;
-    -fx-font-family: "Segoe UI Light";
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI semibold";
     -fx-text-fill: #FFDC49;
-    -fx-opacity: 0.9;
+    -fx-opacity: 1;
 }
 
 .menu .left-container {
-    -fx-background-color: white;
+    -fx-background-color: #494DFF;
 }
 
 .text-field {
@@ -108,7 +108,7 @@ and open the template in the editor.
     -fx-border-color: #e2e2e2;
     -fx-border-width: 2;
     -fx-background-radius: 0;
-    -fx-background-color: #494DFF;
+    -fx-background-color: #004eff;
     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     -fx-font-size: 11pt;
     -fx-text-fill: #FFDC49;
@@ -120,7 +120,7 @@ and open the template in the editor.
 }
 
 .button:pressed, .button:default:hover:pressed {
-  -fx-background-color: white;
+    -fx-background-color: #494dae;
   -fx-text-fill: #ffbe49;
 }
 
