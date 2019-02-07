@@ -57,6 +57,8 @@ public class StudentViewController implements Initializable
     private CategoryAxis days;
 
     private ObservableList<String> allOfDays = FXCollections.observableArrayList();
+    @FXML
+    private Label email;
 
     public void initialize(URL url, ResourceBundle rb)
     {
@@ -89,7 +91,9 @@ public class StudentViewController implements Initializable
 
         calculateAbsence();
         tableView.getSortOrder().setAll(date);
-
+        
+        name.setText(s.getName());
+        email.setText(s.getEmail());
     }
 
     private void calculateAbsence()

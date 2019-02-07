@@ -12,7 +12,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="595.0" prefWidth="600.0" styleClass="background" stylesheets="@../Documents/GitHub/SchoolApp/src/schoolapp/gui/view/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schoolapp.gui.controller.TeacherViewController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" styleClass="background" stylesheets="@../Documents/GitHub/SchoolApp/src/schoolapp/gui/view/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schoolapp.gui.controller.TeacherViewController">
    <children>
       <ChoiceBox fx:id="classChooser" layoutX="412.0" layoutY="73.0" prefWidth="150.0" styleClass="chart" stylesheets="@../Documents/GitHub/SchoolApp/src/schoolapp/gui/view/Style.css" AnchorPane.bottomAnchor="485.0" AnchorPane.leftAnchor="412.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="73.0" />
       <TableView fx:id="tableView" layoutX="11.0" layoutY="136.0" prefHeight="195.0" prefWidth="578.0" AnchorPane.bottomAnchor="268.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="136.0">
