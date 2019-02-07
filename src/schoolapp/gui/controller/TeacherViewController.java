@@ -79,6 +79,10 @@ public class TeacherViewController implements Initializable
     private CategoryAxis dayX;
     
     private Teacher teacher;
+    @FXML
+    private Label tName;
+    @FXML
+    private Label tMail;
 
     /**
      * Initializes the controller class.
@@ -99,6 +103,9 @@ public class TeacherViewController implements Initializable
         classChooser.setItems(model.getAllClasses());
         chart.setTitle("Fravær");
         dayChart.setTitle("Fravær pr. dag");
+        tName.setText(teacher.getName());
+        tMail.setText(teacher.getEmail());
+        
 
         classChooser.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>()
         {
