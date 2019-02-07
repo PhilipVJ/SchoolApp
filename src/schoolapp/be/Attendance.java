@@ -23,12 +23,14 @@ public class Attendance
     private BooleanProperty wasThere;
     private StringProperty attendance;
     private StringProperty date;
+    private boolean requestAttendance;
 
     public Attendance(Calendar dt, boolean here)
     {
         wasThere = new SimpleBooleanProperty();
         attendance = new SimpleStringProperty();
         date = new SimpleStringProperty();
+        requestAttendance=false;
  
         this.curDate = dt;
         wasThere.setValue(here);
@@ -70,10 +72,28 @@ public class Attendance
     }
     
     
-
-
-
-
-
-
+   public void setAttendance(String insert)
+   {
+       attendance.set(insert);
+   }
+   
+   public void setRequestAttendance(boolean x)
+   {
+       requestAttendance=x;
+   }
+   
+   public boolean getRequestAttendance()
+   {
+       return requestAttendance;
+   }
 }
+         
+    
+    
+
+
+
+
+
+
+
