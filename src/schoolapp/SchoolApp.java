@@ -36,6 +36,7 @@ public class SchoolApp extends Application
     public void start(Stage stage) throws Exception
     {
         primaryStage = stage;
+        primaryStage.setResizable(false);
         // Load root layout from fxml file.
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(SchoolApp.class

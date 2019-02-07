@@ -14,8 +14,8 @@
 
 <AnchorPane id="AnchorPane" prefHeight="653.0" prefWidth="600.0" styleClass="background" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schoolapp.gui.controller.TeacherViewController">
    <children>
-      <ChoiceBox fx:id="classChooser" layoutX="412.0" layoutY="73.0" prefHeight="45.0" prefWidth="180.0" styleClass="chart" AnchorPane.bottomAnchor="546.0" AnchorPane.leftAnchor="412.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="73.0" />
-      <TableView fx:id="tableView" layoutX="11.0" layoutY="136.0" prefHeight="195.0" prefWidth="578.0" AnchorPane.bottomAnchor="268.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="136.0">
+      <ChoiceBox fx:id="classChooser" layoutX="412.0" layoutY="73.0" prefHeight="45.0" prefWidth="180.0" styleClass="chart" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="73.0" />
+      <TableView fx:id="tableView" layoutX="11.0" layoutY="136.0" prefHeight="243.0" prefWidth="578.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="136.0">
         <columns>
           <TableColumn fx:id="name" prefWidth="195.0" text="Navn" />
           <TableColumn fx:id="schoolClass" prefWidth="106.0" text="Klasse" />
@@ -23,7 +23,7 @@
             <TableColumn fx:id="absence" minWidth="0.0" prefWidth="154.0" text="Fravær" />
         </columns>
       </TableView>
-      <LineChart fx:id="chart" layoutY="413.0" prefHeight="216.0" prefWidth="282.0" stylesheets="@Style.css" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="318.0" AnchorPane.topAnchor="413.0">
+      <LineChart fx:id="chart" layoutX="14.0" layoutY="413.0" prefHeight="216.0" prefWidth="282.0" stylesheets="@Style.css" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="14.0">
         <xAxis>
           <CategoryAxis fx:id="days" side="BOTTOM" />
         </xAxis>
@@ -31,9 +31,9 @@
           <NumberAxis fx:id="percentage" side="LEFT" styleClass="chart" />
         </yAxis>
       </LineChart>
-      <Label layoutX="285.0" layoutY="22.0" prefHeight="37.0" prefWidth="207.0" text="Gennemsnitslig klassefravær:" AnchorPane.bottomAnchor="594.0" AnchorPane.leftAnchor="285.0" AnchorPane.rightAnchor="108.0" AnchorPane.topAnchor="22.0" />
-      <Label fx:id="absenceClass" layoutX="492.0" layoutY="22.0" prefHeight="37.0" prefWidth="66.0" AnchorPane.bottomAnchor="594.0" AnchorPane.leftAnchor="492.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="22.0" />
-      <BarChart fx:id="dayChart" layoutX="287.0" layoutY="413.0" prefHeight="216.0" prefWidth="265.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="295.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="413.0">
+      <Label layoutX="285.0" layoutY="22.0" text="Gennemsnitslig klassefravær:" AnchorPane.leftAnchor="285.0" AnchorPane.topAnchor="22.0" />
+      <Label fx:id="absenceClass" layoutX="492.0" layoutY="22.0" prefHeight="21.0" prefWidth="91.0" AnchorPane.topAnchor="22.0" />
+      <BarChart fx:id="dayChart" layoutX="321.0" layoutY="413.0" prefHeight="216.0" prefWidth="265.0" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="14.0">
         <xAxis>
           <CategoryAxis fx:id="dayX" side="BOTTOM" />
         </xAxis>
@@ -41,18 +41,18 @@
           <NumberAxis fx:id="dayY" side="LEFT" styleClass="chart" stylesheets="@Style.css" />
         </yAxis>
       </BarChart>
-      <Label layoutX="249.0" layoutY="609.0" prefHeight="28.0" prefWidth="36.0" text="Tid" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="249.0" AnchorPane.rightAnchor="315.0" AnchorPane.topAnchor="609.0" />
-      <Label layoutX="517.0" layoutY="609.0" prefHeight="28.0" prefWidth="66.0" text="Uge dage" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="517.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="609.0" />
-      <Label layoutX="27.0" layoutY="370.0" text="Fravær" AnchorPane.bottomAnchor="218.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="393.0" AnchorPane.topAnchor="370.0" />
-      <Label layoutX="295.0" layoutY="365.0" prefHeight="31.0" prefWidth="177.0" text="Fraværsdage" AnchorPane.bottomAnchor="213.0" AnchorPane.leftAnchor="295.0" AnchorPane.rightAnchor="118.0" AnchorPane.topAnchor="365.0" />
-      <ImageView fitHeight="100.0" fitWidth="106.0" AnchorPane.bottomAnchor="498.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="483.0" AnchorPane.topAnchor="11.0">
+      <Label layoutX="148.0" layoutY="609.0" prefHeight="28.0" prefWidth="36.0" text="Tid" AnchorPane.bottomAnchor="17.0" />
+      <Label layoutX="436.0" layoutY="609.0" prefHeight="28.0" prefWidth="66.0" text="Uge dage" AnchorPane.bottomAnchor="17.0" />
+      <Label layoutX="-4.0" layoutY="497.0" rotate="270.0" text="Fravær" />
+      <Label layoutX="268.0" layoutY="490.0" prefHeight="34.0" prefWidth="106.0" rotate="270.0" text="Fraværsdage" />
+      <ImageView fitHeight="100.0" fitWidth="106.0" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="11.0">
          <image>
             <Image url="@stock.png" />
          </image>
       </ImageView>
-      <Label layoutX="123.0" layoutY="40.0" prefHeight="26.0" prefWidth="48.0" text="Navn:" AnchorPane.bottomAnchor="548.0" AnchorPane.leftAnchor="123.0" AnchorPane.rightAnchor="429.0" AnchorPane.topAnchor="40.0" />
-      <Label layoutX="118.0" layoutY="73.0" prefHeight="21.0" prefWidth="46.0" text="Email:" AnchorPane.bottomAnchor="515.0" AnchorPane.leftAnchor="123.0" AnchorPane.rightAnchor="436.0" AnchorPane.topAnchor="73.0" />
-      <Label fx:id="tName" layoutX="168.0" layoutY="67.0" prefHeight="21.0" prefWidth="91.0" />
-      <Label fx:id="tMail" layoutX="179.0" layoutY="102.0" prefHeight="21.0" prefWidth="106.0" AnchorPane.bottomAnchor="537.0" AnchorPane.leftAnchor="179.0" AnchorPane.rightAnchor="315.0" AnchorPane.topAnchor="102.0" />
+      <Label layoutX="123.0" layoutY="40.0" prefHeight="26.0" prefWidth="48.0" text="Navn:" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="40.0" />
+      <Label layoutX="118.0" layoutY="73.0" prefHeight="21.0" prefWidth="46.0" text="Email:" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="72.0" />
+      <Label fx:id="tName" layoutX="168.0" layoutY="67.0" prefHeight="26.0" prefWidth="146.0" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="40.0" />
+      <Label fx:id="tMail" layoutX="160.0" layoutY="72.0" prefHeight="21.0" prefWidth="180.0" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="72.0" />
    </children>
 </AnchorPane>
