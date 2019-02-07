@@ -17,6 +17,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Side;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -88,6 +89,8 @@ public class StudentViewController implements Initializable
         allOfDays.addAll(Arrays.asList(dayArray));
         days.setCategories(allOfDays);
         chart.setTitle("Fravær");
+        chart.setTitleSide(Side.TOP);
+        
 
         calculateAbsence();
         tableView.getSortOrder().setAll(date);
