@@ -30,7 +30,7 @@
         </yAxis>
       </LineChart>
       <Button layoutX="20.0" layoutY="440.0" mnemonicParsing="false" onAction="#askForAttendance" prefHeight="37.0" prefWidth="226.0" text="Anmod om godkendelse" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="420.0" />
-      <ImageView fitHeight="99.0" fitWidth="99.0" AnchorPane.bottomAnchor="498.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="483.0" AnchorPane.topAnchor="11.0">
+      <ImageView fitHeight="99.0" fitWidth="99.0" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="11.0">
          <image>
             <Image url="@stock.png" />
          </image>
