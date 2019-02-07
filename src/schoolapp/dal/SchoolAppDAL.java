@@ -10,6 +10,7 @@ import java.util.Calendar;
 import schoolapp.be.Attendance;
 import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
+import schoolapp.be.Teacher;
 
 /**
  *This class contains mockdata which is sent to the GUI
@@ -23,6 +24,7 @@ public class SchoolAppDAL implements DAOInterface
 
     private SchoolClass one;
     private SchoolClass two;
+    private Teacher t;
     private ArrayList<SchoolClass> allClasses;
 
     public SchoolAppDAL()
@@ -128,6 +130,10 @@ public class SchoolAppDAL implements DAOInterface
 
         allClasses.add(one);
         allClasses.add(two);
+        
+        t = new Teacher("Hans Jensen", 12, "hjen@easv.dk");
+        t.addClass(one);
+        t.addClass(two);
 
     }
 
@@ -137,11 +143,6 @@ public class SchoolAppDAL implements DAOInterface
         return s;
     }
 
-    @Override
-    public ArrayList<SchoolClass> getSchoolClasses()
-    {
-        return allClasses;
-    }
     
     @Override
     public boolean checkForSchoolNetWork()
@@ -158,6 +159,11 @@ public class SchoolAppDAL implements DAOInterface
     public void askForAttendance(int id, Attendance chosenAttendance)
     {
         
+    }
+@Override
+    public Teacher getTeacher()
+    {
+  return t;
     }
 
 }

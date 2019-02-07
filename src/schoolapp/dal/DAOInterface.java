@@ -10,6 +10,7 @@ import java.util.Calendar;
 import schoolapp.be.Attendance;
 import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
+import schoolapp.be.Teacher;
 
 /**
  *
@@ -34,13 +35,6 @@ public interface DAOInterface
 
     boolean checkForSchoolNetWork();
 
-    /**
-     * Returns all classes
-     *
-     * @return
-     */
-
-    ArrayList<SchoolClass> getSchoolClasses();
 
     /**
      * Returns the student with the given ID
@@ -55,5 +49,7 @@ public interface DAOInterface
      * @param chosenAttendance 
      */
     void askForAttendance(int id, Attendance chosenAttendance);
+    
+     Teacher getTeacher();
 
 }

@@ -32,6 +32,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import schoolapp.be.Attendance;
 import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
+import schoolapp.be.Teacher;
 import schoolapp.gui.model.SchoolAppModel;
 
 /**
@@ -76,6 +77,8 @@ public class TeacherViewController implements Initializable
     private NumberAxis dayY;
     @FXML
     private CategoryAxis dayX;
+    
+    private Teacher teacher;
 
     /**
      * Initializes the controller class.
@@ -85,6 +88,7 @@ public class TeacherViewController implements Initializable
     {
 
         model = new SchoolAppModel();
+        teacher=model.getTeacher();
 
         // init tableview
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
