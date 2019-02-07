@@ -14,7 +14,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="653.0" prefWidth="600.0" styleClass="background" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schoolapp.gui.controller.TeacherViewController">
    <children>
-      <ChoiceBox fx:id="classChooser" layoutX="412.0" layoutY="73.0" prefHeight="45.0" prefWidth="180.0" styleClass="chart" stylesheets="@../Documents/GitHub/SchoolApp/src/schoolapp/gui/view/Style.css" AnchorPane.bottomAnchor="546.0" AnchorPane.leftAnchor="412.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="73.0" />
+      <ChoiceBox fx:id="classChooser" layoutX="412.0" layoutY="73.0" prefHeight="45.0" prefWidth="180.0" styleClass="chart" AnchorPane.bottomAnchor="546.0" AnchorPane.leftAnchor="412.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="73.0" />
       <TableView fx:id="tableView" layoutX="11.0" layoutY="136.0" prefHeight="195.0" prefWidth="578.0" AnchorPane.bottomAnchor="268.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="136.0">
         <columns>
           <TableColumn fx:id="name" prefWidth="195.0" text="Navn" />
@@ -23,12 +23,12 @@
             <TableColumn fx:id="absence" minWidth="0.0" prefWidth="154.0" text="Fravær" />
         </columns>
       </TableView>
-      <LineChart fx:id="chart" layoutY="413.0" prefHeight="216.0" prefWidth="282.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="318.0" AnchorPane.topAnchor="413.0">
+      <LineChart fx:id="chart" layoutY="413.0" prefHeight="216.0" prefWidth="282.0" stylesheets="@Style.css" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="318.0" AnchorPane.topAnchor="413.0">
         <xAxis>
           <CategoryAxis fx:id="days" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis fx:id="percentage" side="LEFT" styleClass="chart" stylesheets="@../Documents/GitHub/SchoolApp/src/schoolapp/gui/view/Style.css" />
+          <NumberAxis fx:id="percentage" side="LEFT" styleClass="chart" />
         </yAxis>
       </LineChart>
       <Label layoutX="285.0" layoutY="22.0" prefHeight="37.0" prefWidth="207.0" text="Gennemsnitslig klassefravær:" AnchorPane.bottomAnchor="594.0" AnchorPane.leftAnchor="285.0" AnchorPane.rightAnchor="108.0" AnchorPane.topAnchor="22.0" />
@@ -38,7 +38,7 @@
           <CategoryAxis fx:id="dayX" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis fx:id="dayY" side="LEFT" styleClass="chart" stylesheets="@../Documents/GitHub/SchoolApp/src/schoolapp/gui/view/Style.css" />
+          <NumberAxis fx:id="dayY" side="LEFT" styleClass="chart" stylesheets="@Style.css" />
         </yAxis>
       </BarChart>
       <Label layoutX="249.0" layoutY="609.0" prefHeight="28.0" prefWidth="36.0" text="Tid" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="249.0" AnchorPane.rightAnchor="315.0" AnchorPane.topAnchor="609.0" />
