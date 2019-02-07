@@ -140,6 +140,7 @@ public class StudentViewController implements Initializable
         showAlert.showAndWait();
         chosenAttendance.setAttendance("Fravær (Anmodet om godkendelse)");
         chosenAttendance.setRequestAttendance(true);
+        model.askForAttendance(s.getId(), chosenAttendance);
         tableView.refresh();
         }
     }

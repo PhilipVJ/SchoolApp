@@ -61,6 +61,11 @@ public class SchoolAppModel
     {
         return manager.checkForDailtyAttendance(date);
     }
+
+    public void askForAttendance(int id, Attendance chosenAttendance)
+    {
+        manager.askForAttendance(id,chosenAttendance);
+    }
     
     
 }

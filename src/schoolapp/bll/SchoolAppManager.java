@@ -46,4 +46,9 @@ public class SchoolAppManager
     {
        return dal.checkForDailtyAttendance(date);
     }
+
+    public void askForAttendance(int id, Attendance chosenAttendance)
+    {
+        dal.askForAttendance(id, chosenAttendance);
+    }
 }

@@ -7,6 +7,7 @@ package schoolapp.dal;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import schoolapp.be.Attendance;
 import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
 
@@ -48,5 +49,11 @@ public interface DAOInterface
      * @return
      */
     Student getStudent(int id);
+    /**
+     * Asks for a change of attendance
+     * @param id
+     * @param chosenAttendance 
+     */
+    void askForAttendance(int id, Attendance chosenAttendance);
 
 }

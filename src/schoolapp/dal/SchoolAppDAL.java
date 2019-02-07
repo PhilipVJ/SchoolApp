@@ -7,6 +7,7 @@ package schoolapp.dal;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import schoolapp.be.Attendance;
 import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
 
@@ -152,6 +153,11 @@ public class SchoolAppDAL implements DAOInterface
     public boolean checkForDailtyAttendance(Calendar date)
     {
         return false;
+    }
+
+    public void askForAttendance(int id, Attendance chosenAttendance)
+    {
+        
     }
 
 }
