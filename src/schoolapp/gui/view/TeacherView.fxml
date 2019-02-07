@@ -19,7 +19,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tableView" layoutX="15.0" layoutY="169.0" prefHeight="195.0" prefWidth="578.0">
+      <TableView fx:id="tableView" layoutX="15.0" layoutY="169.0" prefHeight="168.0" prefWidth="509.0">
         <columns>
           <TableColumn fx:id="name" prefWidth="195.0" text="Navn" />
           <TableColumn fx:id="schoolClass" prefWidth="106.0" text="Klasse" />
@@ -27,7 +27,7 @@
             <TableColumn fx:id="absence" minWidth="0.0" prefWidth="154.0" text="Fravær" />
         </columns>
       </TableView>
-      <LineChart fx:id="chart" layoutX="17.0" layoutY="404.0" prefHeight="195.0" prefWidth="290.0">
+      <LineChart fx:id="chart" layoutX="17.0" layoutY="404.0" prefHeight="142.0" prefWidth="237.0">
         <xAxis>
           <CategoryAxis fx:id="days" side="BOTTOM" />
         </xAxis>
@@ -37,7 +37,7 @@
       </LineChart>
       <Label layoutX="43.0" layoutY="38.0" text="Gennemsnitslig klassefravær" />
       <Label fx:id="absenceClass" layoutX="75.0" layoutY="87.0" prefHeight="21.0" prefWidth="97.0" />
-      <BarChart fx:id="dayChart" layoutX="307.0" layoutY="404.0" prefHeight="195.0" prefWidth="269.0">
+      <BarChart fx:id="dayChart" layoutX="307.0" layoutY="404.0" prefHeight="151.0" prefWidth="198.0">
         <xAxis>
           <CategoryAxis fx:id="dayX" side="BOTTOM" />
         </xAxis>
