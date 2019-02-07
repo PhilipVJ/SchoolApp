@@ -119,7 +119,7 @@ public class Student extends Person
                 }
             }
         }
-        System.out.println(""+monday+"   "+tuesday+"    "+wedensday+"    "+thursday+"   "+friday);
+        
         allDays.add(monday);
         allDays.add(tuesday);
         allDays.add(wedensday);

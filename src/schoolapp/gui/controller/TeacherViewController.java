@@ -66,9 +66,6 @@ public class TeacherViewController implements Initializable
     @FXML
     private CategoryAxis days;
 
-    private ObservableList<String> allOfDays;
-
-    private ObservableList<String> allWeekDays;
     @FXML
     private Label absenceClass;
     @FXML
@@ -77,7 +74,7 @@ public class TeacherViewController implements Initializable
     private NumberAxis dayY;
     @FXML
     private CategoryAxis dayX;
-    
+
     private Teacher teacher;
     @FXML
     private Label tName;
@@ -92,7 +89,7 @@ public class TeacherViewController implements Initializable
     {
 
         model = new SchoolAppModel();
-        teacher=model.getTeacher();
+        teacher = model.getTeacher();
 
         // init tableview
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -101,11 +98,19 @@ public class TeacherViewController implements Initializable
         absence.setCellValueFactory(new PropertyValueFactory<>("abPercentage"));
         absence.setSortType(TableColumn.SortType.DESCENDING);
         classChooser.setItems(model.getAllClasses());
+        //Setting up the charts
+
         chart.setTitle("Fravær");
+        chart.setLegendVisible(false);
+        chart.setAnimated(false);
+
+
+        dayChart.setLegendVisible(false);
         dayChart.setTitle("Fravær pr. dag");
+        dayChart.setAnimated(false);
+
         tName.setText(teacher.getName());
         tMail.setText(teacher.getEmail());
-        
 
         classChooser.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>()
         {
@@ -143,6 +148,7 @@ public class TeacherViewController implements Initializable
                     @Override
                     public void run()
                     {
+
                         initStudentLineChart();
                         initStudentBarChart();
                     }
@@ -150,19 +156,6 @@ public class TeacherViewController implements Initializable
                 });
             }
         });
-
-        String[] dayArray = new String[5];
-        dayArray[0] = "Man";
-        dayArray[1] = "Tir";
-        dayArray[2] = "Ons";
-        dayArray[3] = "Tor";
-        dayArray[4] = "Fre";
-        // Convert it to a list and add it to our ObservableList of days.
-        ArrayList<String> listArray = new ArrayList<>();
-        listArray.addAll(Arrays.asList(dayArray));
-        allWeekDays = FXCollections.observableArrayList(listArray);
-        dayX.setCategories(allWeekDays);
-        
 
     }
 
@@ -176,36 +169,14 @@ public class TeacherViewController implements Initializable
 
     private void initStudentLineChart()
     {
-        clearChart();
+        chart.getData().clear();
         // Gets the selected student
         Student chosenStudent = tableView.getSelectionModel().getSelectedItem();
         if (chosenStudent != null)
         {
-            String[] dayArray = new String[chosenStudent.getFullAttendance().size()];
-            for (int i = 0; i < chosenStudent.getFullAttendance().size(); i++)
-            {
-                dayArray[i] = "" + (i + 1);
-            }
-            // Convert it to a list and add it to our ObservableList of days.
-            ArrayList<String> listArray = new ArrayList<>();
-            listArray.addAll(Arrays.asList(dayArray));
-            allOfDays = FXCollections.observableArrayList(listArray);
-            days.setCategories(allOfDays);
-            
-
             calculateAbsence(chosenStudent);
         }
-    }
 
-    private void clearChart()
-    {
-        // clears the chart for previous showings
-        days.getCategories().clear();
-        chart.getData().clear();
-        if (allOfDays != null)
-        {
-            allOfDays.clear();
-        }
     }
 
     private void calculateAbsence(Student s)
@@ -222,11 +193,10 @@ public class TeacherViewController implements Initializable
             numberOfDays++;
             if (x.getWasThere() == true)
             {
-                System.out.println("Was there");
                 daysAttended++;
             }
             int calAttendance = (int) (100 - daysAttended / numberOfDays * 100);
-            System.out.println("" + numberOfDays + "     " + calAttendance);
+
             series.getData().add(new XYChart.Data("" + numberOfDays, calAttendance));
         }
 
@@ -270,11 +240,10 @@ public class TeacherViewController implements Initializable
         series.getData().add(new XYChart.Data("Man", weekDays.get(0)));
         series.getData().add(new XYChart.Data("Tir", weekDays.get(1)));
         series.getData().add(new XYChart.Data("Ons", weekDays.get(2)));
-        series.getData().add(new XYChart.Data("Tors", weekDays.get(3)));
+        series.getData().add(new XYChart.Data("Tor", weekDays.get(3)));
         series.getData().add(new XYChart.Data("Fre", weekDays.get(4)));
 
         dayChart.getData().add(series);
 
-        System.out.println("Done");
     }
 }

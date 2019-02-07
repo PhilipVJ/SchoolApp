@@ -25,26 +25,22 @@
       </TableView>
       <LineChart fx:id="chart" layoutX="14.0" layoutY="413.0" prefHeight="216.0" prefWidth="282.0" stylesheets="@Style.css" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="14.0">
         <xAxis>
-          <CategoryAxis fx:id="days" side="BOTTOM" />
+          <CategoryAxis fx:id="days" label="Antal skoledage" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis fx:id="percentage" side="LEFT" styleClass="chart" />
+          <NumberAxis fx:id="percentage" label="Fravær i procent" side="LEFT" styleClass="chart" />
         </yAxis>
       </LineChart>
-      <Label layoutX="285.0" layoutY="22.0" text="Gennemsnitslig klassefravær:" AnchorPane.leftAnchor="285.0" AnchorPane.topAnchor="22.0" />
-      <Label fx:id="absenceClass" layoutX="492.0" layoutY="22.0" prefHeight="21.0" prefWidth="91.0" AnchorPane.topAnchor="22.0" />
+      <Label layoutX="8.0" layoutY="392.0" text="Gennemsnitslig klassefravær:" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="392.0" />
+      <Label fx:id="absenceClass" layoutX="220.0" layoutY="392.0" prefHeight="21.0" prefWidth="91.0" AnchorPane.topAnchor="392.0" />
       <BarChart fx:id="dayChart" layoutX="321.0" layoutY="413.0" prefHeight="216.0" prefWidth="265.0" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="14.0">
         <xAxis>
           <CategoryAxis fx:id="dayX" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis fx:id="dayY" side="LEFT" styleClass="chart" stylesheets="@Style.css" />
+          <NumberAxis fx:id="dayY" label="Dage med fravær" side="LEFT" styleClass="chart" stylesheets="@Style.css" />
         </yAxis>
       </BarChart>
-      <Label layoutX="148.0" layoutY="609.0" prefHeight="28.0" prefWidth="36.0" text="Tid" AnchorPane.bottomAnchor="17.0" />
-      <Label layoutX="436.0" layoutY="609.0" prefHeight="28.0" prefWidth="66.0" text="Uge dage" AnchorPane.bottomAnchor="17.0" />
-      <Label layoutX="-4.0" layoutY="497.0" rotate="270.0" text="Fravær" />
-      <Label layoutX="268.0" layoutY="490.0" prefHeight="34.0" prefWidth="106.0" rotate="270.0" text="Fraværsdage" />
       <ImageView fitHeight="100.0" fitWidth="106.0" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="11.0">
          <image>
             <Image url="@stock.png" />

@@ -7,11 +7,8 @@ package schoolapp.gui.controller;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.ResourceBundle;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -78,18 +75,10 @@ public class StudentViewController implements Initializable
         presence.setCellValueFactory(new PropertyValueFactory<>("attendance"));
         tableView.setItems(model.getList());
 
-        // Makes an arraylist with the size of the total number of days the student
-        // has been in school. Each String contains the number of the specific day
-        String[] dayArray = new String[s.getFullAttendance().size()];
-        for (int i = 0; i < s.getFullAttendance().size(); i++)
-        {
-            dayArray[i] = "" + (i + 1);
-        }
-        // Convert it to a list and add it to our ObservableList of days.
-        allOfDays.addAll(Arrays.asList(dayArray));
-        days.setCategories(allOfDays);
         chart.setTitle("Fravær");
         chart.setTitleSide(Side.TOP);
+        percentage.setLowerBound(0);
+        percentage.setUpperBound(100);
         
 
         calculateAbsence();

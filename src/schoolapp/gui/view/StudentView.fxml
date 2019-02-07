@@ -23,10 +23,10 @@
       </TableView>
       <LineChart fx:id="chart" layoutX="262.0" layoutY="403.0" prefHeight="190.0" prefWidth="308.0" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="403.0">
         <xAxis>
-          <CategoryAxis fx:id="days" side="BOTTOM" styleClass="chart" />
+          <CategoryAxis fx:id="days" label="Antal skoledage" side="BOTTOM" styleClass="chart" />
         </xAxis>
         <yAxis>
-          <NumberAxis fx:id="percentage" side="LEFT" styleClass="chart" />
+          <NumberAxis fx:id="percentage" label="Fravær i procent" side="LEFT" styleClass="chart" />
         </yAxis>
       </LineChart>
       <Button layoutX="20.0" layoutY="440.0" mnemonicParsing="false" onAction="#askForAttendance" prefHeight="37.0" prefWidth="226.0" text="Anmod om godkendelse" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="420.0" />
@@ -38,8 +38,6 @@
       <Label layoutX="115.0" layoutY="77.0" prefHeight="14.0" prefWidth="50.0" text="Email:" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="72.0" />
       <Label layoutX="120.0" layoutY="50.0" text="Navn:" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="40.0" />
       <Label fx:id="email" layoutX="160.0" layoutY="77.0" prefHeight="21.0" prefWidth="215.0" AnchorPane.leftAnchor="163.0" AnchorPane.topAnchor="72.0" />
-      <Label layoutX="204.0" layoutY="481.0" rotate="270.0" text="Fraværsprocent%" />
-      <Label layoutX="378.0" layoutY="577.0" prefHeight="33.0" prefWidth="120.0" text="Antal skoledage" />
       <Label layoutX="399.0" layoutY="14.0" text="Nuværende fraværsprocent:" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
    </children>
 </AnchorPane>
