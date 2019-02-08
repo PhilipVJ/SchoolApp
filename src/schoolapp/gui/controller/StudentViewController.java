@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Side;
+import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -24,6 +25,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import schoolapp.be.Attendance;
 import schoolapp.be.Student;
 import schoolapp.gui.model.SchoolAppModel;
@@ -75,16 +78,15 @@ public class StudentViewController implements Initializable
         presence.setCellValueFactory(new PropertyValueFactory<>("attendance"));
         tableView.setItems(model.getList());
 
-        chart.setTitle("Fravær");
+        chart.setTitle("Fraværshistorik");
         chart.setLegendVisible(false);
         chart.setTitleSide(Side.TOP);
         percentage.setLowerBound(0);
         percentage.setUpperBound(100);
-        
 
         calculateAbsence();
         tableView.getSortOrder().setAll(date);
-        
+
         name.setText(s.getName());
         email.setText(s.getEmail());
     }
@@ -129,18 +131,39 @@ public class StudentViewController implements Initializable
     private void askForAttendance(ActionEvent event)
     {
         Attendance chosenAttendance = tableView.getSelectionModel().getSelectedItem();
-        
-        if(chosenAttendance!=null && chosenAttendance.getWasThere()==false && chosenAttendance.getRequestAttendance()==false){
-        Alert showAlert = new Alert(Alert.AlertType.INFORMATION);
-        showAlert.setHeaderText("Anmodning om godkendelse");
-        showAlert.setContentText("Din anmodning om godkendelse af fravær d. "+chosenAttendance.getDate()+" er sendt til din lærer!");
-        showAlert.showAndWait();
-        chosenAttendance.setAttendance("Fravær (Anmodet om godkendelse)");
-        chosenAttendance.setRequestAttendance(true);
-        model.askForAttendance(s.getId(), chosenAttendance);
-        tableView.refresh();
+
+        if (chosenAttendance != null && chosenAttendance.getWasThere() == false && chosenAttendance.getRequestAttendance() == false)
+        {
+            Alert showAlert = new Alert(Alert.AlertType.INFORMATION);
+            showAlert.setHeaderText("Anmodning om godkendelse");
+            showAlert.setContentText("Din anmodning om godkendelse af fravær d. " + chosenAttendance.getDate() + " er sendt til din lærer!");
+            showAlert.showAndWait();
+            chosenAttendance.setAttendance("Fravær (Anmodet om godkendelse)");
+            chosenAttendance.setRequestAttendance(true);
+            model.askForAttendance(s.getId(), chosenAttendance);
+            tableView.refresh();
+            return;
+        }
+
+        if (chosenAttendance != null)
+        {
+            Alert showAlert = new Alert(Alert.AlertType.INFORMATION);
+            showAlert.setHeaderText("Anmodning om godkendelse");
+            showAlert.setContentText("Du har ikke fravær den valgte dag");
+            showAlert.showAndWait();
+        } else
+        {
+            Alert showAlert = new Alert(Alert.AlertType.INFORMATION);
+            showAlert.setHeaderText("Anmodning om godkendelse");
+            showAlert.setContentText("Du har ikke valgt en dag");
+            showAlert.showAndWait();
         }
     }
 
+    @FXML
+    private void openChart(MouseEvent event)
+    {
+
+    }
 
 }

@@ -32,6 +32,8 @@ public class SchoolAppModel
     {
         this.manager = new SchoolAppManager();
         s = manager.getStudent(1);
+        classList=FXCollections.observableArrayList();
+        classList.add(new SchoolClass("Hold"));
         oList = FXCollections.observableArrayList(s.getFullAttendance());
     }
 
@@ -48,8 +50,7 @@ public class SchoolAppModel
     
     public ObservableList<SchoolClass> getAllClasses()
     {
-        
-   
+
         return classList;
     }
     
@@ -71,7 +72,7 @@ public class SchoolAppModel
     public Teacher getTeacher()
     {
         Teacher t1 = manager.getTeacher();
-        classList = FXCollections.observableArrayList(manager.getTeacher().getAllClasses());
+        classList.addAll(manager.getTeacher().getAllClasses());
         t=t1;
         return t1;
     }

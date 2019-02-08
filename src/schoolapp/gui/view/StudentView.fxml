@@ -24,7 +24,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <LineChart fx:id="chart" layoutX="262.0" layoutY="403.0" prefHeight="190.0" prefWidth="308.0" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="403.0">
+      <LineChart fx:id="chart" layoutX="262.0" layoutY="403.0" onMouseClicked="#openChart" prefHeight="190.0" prefWidth="308.0" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="403.0">
         <xAxis>
           <CategoryAxis fx:id="days" label="Antal skoledage" side="BOTTOM" styleClass="chart" />
         </xAxis>

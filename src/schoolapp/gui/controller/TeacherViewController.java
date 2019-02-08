@@ -29,6 +29,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import schoolapp.be.Attendance;
 import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
@@ -90,6 +91,7 @@ public class TeacherViewController implements Initializable
 
         model = new SchoolAppModel();
         teacher = model.getTeacher();
+        
 
         // init tableview
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -97,10 +99,13 @@ public class TeacherViewController implements Initializable
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
         absence.setCellValueFactory(new PropertyValueFactory<>("abPercentage"));
         absence.setSortType(TableColumn.SortType.DESCENDING);
+        
+        
         classChooser.setItems(model.getAllClasses());
+        classChooser.getSelectionModel().selectFirst();
         //Setting up the charts
 
-        chart.setTitle("Fravær");
+        chart.setTitle("Fraværshistorik");
         chart.setLegendVisible(false);
         chart.setAnimated(false);
 
@@ -245,5 +250,15 @@ public class TeacherViewController implements Initializable
 
         dayChart.getData().add(series);
 
+    }
+
+    @FXML
+    private void openLineChart(MouseEvent event)
+    {
+    }
+
+    @FXML
+    private void openBarChart(MouseEvent event)
+    {
     }
 }
