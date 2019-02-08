@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -7,7 +8,7 @@
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" styleClass="background" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schoolapp.gui.controller.RootLayoutController">
    <top>
-      <MenuBar prefHeight="28.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <MenuBar fx:id="menuBar" prefHeight="38.0" prefWidth="600.0" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Filer">
             <items>
@@ -21,6 +22,9 @@
             </items>
           </Menu>
         </menus>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </MenuBar>
    </top>
 </BorderPane>

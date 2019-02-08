@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.MenuBar;
 import javafx.scene.layout.BorderPane;
 
 /**
@@ -27,6 +28,8 @@ public class RootLayoutController implements Initializable
 
     @FXML
     private BorderPane borderPane;
+    @FXML
+    private MenuBar menuBar;
 
     /**
      * Initializes the controller class.
@@ -34,7 +37,7 @@ public class RootLayoutController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        // TODO
+     
     }    
 
     @FXML
