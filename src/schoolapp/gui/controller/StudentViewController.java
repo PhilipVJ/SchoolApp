@@ -76,6 +76,7 @@ public class StudentViewController implements Initializable
         tableView.setItems(model.getList());
 
         chart.setTitle("Fravær");
+        chart.setLegendVisible(false);
         chart.setTitleSide(Side.TOP);
         percentage.setLowerBound(0);
         percentage.setUpperBound(100);
