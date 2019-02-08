@@ -118,7 +118,7 @@ public class StudentViewController implements Initializable
         if (model.checkForSchoolNetwork() == true && model.checkForDailyAttendance(Calendar.getInstance()) == false)
         {
             Alert showAlert = new Alert(Alert.AlertType.INFORMATION);
-            showAlert.setHeaderText("Fraværs alert");
+            showAlert.setHeaderText("Fraværs alarm");
             showAlert.setContentText("Du er ikke registreret for i dag - lad mig gøre det for dig!");
             showAlert.showAndWait();
         }

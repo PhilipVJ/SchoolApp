@@ -48,12 +48,9 @@ public class SchoolApp extends Application
         primaryStage.setScene(scene);
 
         initView();
-
-        primaryStage.show();
-        
         CreateContextMenu();
-        
-        
+        primaryStage.show();
+
     }
 
     private void CreateContextMenu()
@@ -61,19 +58,21 @@ public class SchoolApp extends Application
         ContextMenu cMenu = new ContextMenu();
         MenuItem mItem1 = new MenuItem();
         mItem1.setText("Close");
-        
+
         cMenu.getItems().add(mItem1);
-        
-        rootLayout.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+        rootLayout.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>()
+        {
             @Override
             public void handle(MouseEvent event)
             {
-                if(event.getButton() == MouseButton.SECONDARY){
+                if (event.getButton() == MouseButton.SECONDARY)
+                {
                     cMenu.show(primaryStage, event.getScreenX(), event.getScreenY());
                 }
             }
         });
-        
+
         mItem1.setOnAction(new EventHandler<ActionEvent>()
         {
             @Override
