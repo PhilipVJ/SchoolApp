@@ -15,11 +15,14 @@
    <children>
       <Label fx:id="absence" layoutX="528.0" layoutY="40.0" prefHeight="21.0" prefWidth="58.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="72.0" />
       <Label fx:id="name" layoutX="158.0" layoutY="11.0" prefHeight="21.0" prefWidth="215.0" AnchorPane.leftAnchor="163.0" AnchorPane.topAnchor="40.0" />
-      <TableView fx:id="tableView" layoutX="11.0" layoutY="118.0" prefHeight="240.0" prefWidth="551.0" AnchorPane.bottomAnchor="255.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="118.0">
+      <TableView fx:id="tableView" layoutX="11.0" layoutY="118.0" prefHeight="280.0" prefWidth="578.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0">
         <columns>
           <TableColumn fx:id="date" prefWidth="237.0" text="Dato" />
           <TableColumn fx:id="presence" minWidth="0.0" prefWidth="308.0" text="Tilstedeværelse" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <LineChart fx:id="chart" layoutX="262.0" layoutY="403.0" prefHeight="190.0" prefWidth="308.0" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="403.0">
         <xAxis>
