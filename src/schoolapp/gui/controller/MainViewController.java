@@ -15,8 +15,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import schoolapp.dal.Authentication;
 
 /**
  * FXML Controller class
@@ -33,6 +36,12 @@ public class MainViewController implements Initializable
     @FXML
     private AnchorPane anchorPane;
     private BorderPane rootLayout;
+    @FXML
+    private PasswordField password;
+    @FXML
+    private TextField username;
+    @FXML
+    private Label infoLabel;
 
     /**
      * Initializes the controller class.
@@ -46,9 +55,15 @@ public class MainViewController implements Initializable
     @FXML
     private void openStudent(ActionEvent event) throws IOException
     {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/StudentView.fxml"));
-        Parent root = loader.load();
-        rootLayout.setCenter(root);
+        if (Authentication.validateStudentLogin(username.getText(), password.getText()) == true)
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/StudentView.fxml"));
+            Parent root = loader.load();
+            rootLayout.setCenter(root);
+        } else
+        {
+            infoLabel.setText("Please type a valid password");
+        }
     }
 
     public void setRootLayout(BorderPane rootLayout)
@@ -59,9 +74,15 @@ public class MainViewController implements Initializable
     @FXML
     private void openTeacher(ActionEvent event) throws IOException
     {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/TeacherView.fxml"));
-        Parent root = loader.load();
-        rootLayout.setCenter(root);
+        if (Authentication.validateTeacherLogin(username.getText(), password.getText()) == true)
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/TeacherView.fxml"));
+            Parent root = loader.load();
+            rootLayout.setCenter(root);
+        } else
+        {
+            infoLabel.setText("Please type a valid password");
+        }
     }
 
 }

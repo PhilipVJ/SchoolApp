@@ -12,8 +12,8 @@
     <children>
         <Button fx:id="button" layoutX="285.0" layoutY="404.0" mnemonicParsing="false" onAction="#openStudent" prefHeight="54.0" prefWidth="120.0" text="Studerende" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="405.0" />
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <PasswordField layoutX="238.0" layoutY="325.0" prefHeight="45.0" prefWidth="130.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="350.0" />
-      <TextField layoutX="234.0" layoutY="250.0" prefHeight="47.0" prefWidth="133.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="260.0" />
+      <PasswordField fx:id="password" layoutX="238.0" layoutY="325.0" prefHeight="45.0" prefWidth="130.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="350.0" />
+      <TextField fx:id="username" layoutX="234.0" layoutY="250.0" prefHeight="47.0" prefWidth="133.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="260.0" />
       <Label layoutX="151.0" layoutY="220.0" prefHeight="39.0" prefWidth="120.0" text="Brugernavn" AnchorPane.leftAnchor="150.0" />
       <Label layoutX="152.0" layoutY="317.0" prefHeight="37.0" prefWidth="112.0" text="Adgangskode" AnchorPane.leftAnchor="150.0" />
       <Button layoutX="155.0" layoutY="405.0" mnemonicParsing="false" onAction="#openTeacher" prefHeight="54.0" prefWidth="120.0" text="Lærer" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="405.0" />
@@ -22,6 +22,7 @@
             <Font size="24.0" />
          </font>
       </Label>
+      <Label fx:id="infoLabel" layoutX="161.0" layoutY="481.0" prefHeight="21.0" prefWidth="282.0" />
     </children>
    <styleClass>
       <String fx:value="chart" />
