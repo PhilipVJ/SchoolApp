@@ -262,49 +262,90 @@ public class TeacherViewController implements Initializable
         LineChart l = new LineChart(x, y);
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
-        if(tableView.getSelectionModel().getSelectedItem()!=null){
-        ArrayList<Attendance> allAttendance = tableView.getSelectionModel().getSelectedItem().getFullAttendance();
-       
-        int numberOfDays = 0;
-        double daysAttended = 0;
-
-        for (Attendance k : allAttendance)
+        if (tableView.getSelectionModel().getSelectedItem() != null)
         {
-            numberOfDays++;
-            if (k.getWasThere() == true)
+            ArrayList<Attendance> allAttendance = tableView.getSelectionModel().getSelectedItem().getFullAttendance();
+
+            int numberOfDays = 0;
+            double daysAttended = 0;
+
+            for (Attendance k : allAttendance)
             {
-                daysAttended++;
+                numberOfDays++;
+                if (k.getWasThere() == true)
+                {
+                    daysAttended++;
+                }
+                int calAttendance = (int) (100 - daysAttended / numberOfDays * 100);
+
+                series.getData().add(new XYChart.Data("" + numberOfDays, calAttendance));
             }
-            int calAttendance = (int) (100 - daysAttended / numberOfDays * 100);
 
-            series.getData().add(new XYChart.Data("" + numberOfDays, calAttendance));
-        }
+            l.getData().add(series);
+            l.setLegendVisible(false);
+            l.setTitle("Fraværshistorik");
+            y.setLabel("Fravær i procent");
+            x.setLabel("Antal skoledage");
 
-        l.getData().add(series);
-        l.setLegendVisible(false);
-        l.setTitle("Fraværshistorik");
-        y.setLabel("Fravær i procent");
-        x.setLabel("Antal skoledage");
+            BorderPane bPane = new BorderPane();
+            bPane.setCenter(l);
 
-        BorderPane bPane = new BorderPane();
-        bPane.setCenter(l);
+            bPane.getStyleClass().add("background");
 
-        bPane.getStyleClass().add("background");
+            Scene newScene = new Scene(bPane);
+            newStage.setHeight(600);
+            newStage.setWidth(1000);
+            newStage.setResizable(false);
 
-        Scene newScene = new Scene(bPane);
-        newStage.setHeight(600);
-        newStage.setWidth(1000);
-        newStage.setResizable(false);
+            newScene.getStylesheets().add("schoolapp/gui/view/Style.css");
 
-        newScene.getStylesheets().add("schoolapp/gui/view/Style.css");
-
-        newStage.setScene(newScene);
-        newStage.show();
+            newStage.setScene(newScene);
+            newStage.show();
         }
     }
 
     @FXML
     private void openBarChart(MouseEvent event)
     {
+        Student chosenStudent = tableView.getSelectionModel().getSelectedItem();
+        if (chosenStudent != null)
+        {
+            XYChart.Series<String, Integer> series = new XYChart.Series<>();
+            ArrayList<Integer> weekDays = chosenStudent.getMostAbsentDay();
+
+            series.getData().add(new XYChart.Data("Man", weekDays.get(0)));
+            series.getData().add(new XYChart.Data("Tir", weekDays.get(1)));
+            series.getData().add(new XYChart.Data("Ons", weekDays.get(2)));
+            series.getData().add(new XYChart.Data("Tor", weekDays.get(3)));
+            series.getData().add(new XYChart.Data("Fre", weekDays.get(4)));
+
+            NumberAxis c = new NumberAxis();
+            c.setLabel("Dage med fravær");
+            CategoryAxis n = new CategoryAxis();
+           
+            
+            BarChart b = new BarChart(n, c);
+            b.setTitle("Fravær pr. dag");
+            b.setLegendVisible(false);
+            b.getData().add(series);
+
+            Stage newStage = new Stage();
+
+            BorderPane bPane = new BorderPane();
+            bPane.setCenter(b);
+
+            bPane.getStyleClass().add("background");
+
+            Scene newScene = new Scene(bPane);
+            newStage.setHeight(600);
+            newStage.setWidth(1000);
+            newStage.setResizable(false);
+
+            newScene.getStylesheets().add("schoolapp/gui/view/Style.css");
+
+            newStage.setScene(newScene);
+            newStage.show();
+
+        }
     }
 }
