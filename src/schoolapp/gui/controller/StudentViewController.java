@@ -199,7 +199,6 @@ public class StudentViewController implements Initializable
         y.setLabel("Fravær i procent");
         x.setLabel("Antal skoledage");
         Scene newScene = new Scene(new BorderPane(l));
-//newScene.getStylesheets().add("schoolapp/gui/view/Style.css");
         newStage.setHeight(600);
         newStage.setWidth(1000);
         newStage.setResizable(false);
