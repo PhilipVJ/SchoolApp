@@ -20,6 +20,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import schoolapp.gui.controller.MainViewController;
 
 /**
@@ -36,6 +37,7 @@ public class SchoolApp extends Application
     public void start(Stage stage) throws Exception
     {
         primaryStage = stage;
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setResizable(false);
         // Load root layout from fxml file.
         FXMLLoader loader = new FXMLLoader();
