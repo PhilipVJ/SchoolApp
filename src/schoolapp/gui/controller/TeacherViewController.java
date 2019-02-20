@@ -18,6 +18,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
@@ -29,6 +30,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import schoolapp.be.Attendance;
 import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
@@ -90,7 +93,6 @@ public class TeacherViewController implements Initializable
 
         model = new SchoolAppModel();
         teacher = model.getTeacher();
-        
 
         // init tableview
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -98,8 +100,7 @@ public class TeacherViewController implements Initializable
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
         absence.setCellValueFactory(new PropertyValueFactory<>("abPercentage"));
         absence.setSortType(TableColumn.SortType.DESCENDING);
-        
-        
+
         classChooser.setItems(model.getAllClasses());
         classChooser.getSelectionModel().selectFirst();
         //Setting up the charts
@@ -107,7 +108,6 @@ public class TeacherViewController implements Initializable
         chart.setTitle("Fraværshistorik");
         chart.setLegendVisible(false);
         chart.setAnimated(false);
-
 
         dayChart.setLegendVisible(false);
         dayChart.setTitle("Fravær pr. dag");
@@ -254,6 +254,53 @@ public class TeacherViewController implements Initializable
     @FXML
     private void openLineChart(MouseEvent event)
     {
+
+        Stage newStage = new Stage();
+
+        NumberAxis y = new NumberAxis();
+        CategoryAxis x = new CategoryAxis();
+        LineChart l = new LineChart(x, y);
+
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+        if(tableView.getSelectionModel().getSelectedItem()!=null){
+        ArrayList<Attendance> allAttendance = tableView.getSelectionModel().getSelectedItem().getFullAttendance();
+       
+        int numberOfDays = 0;
+        double daysAttended = 0;
+
+        for (Attendance k : allAttendance)
+        {
+            numberOfDays++;
+            if (k.getWasThere() == true)
+            {
+                daysAttended++;
+            }
+            int calAttendance = (int) (100 - daysAttended / numberOfDays * 100);
+
+            series.getData().add(new XYChart.Data("" + numberOfDays, calAttendance));
+        }
+
+        l.getData().add(series);
+        l.setLegendVisible(false);
+        l.setTitle("Fraværshistorik");
+        y.setLabel("Fravær i procent");
+        x.setLabel("Antal skoledage");
+
+        BorderPane bPane = new BorderPane();
+        bPane.setCenter(l);
+
+        bPane.getStyleClass().add("background");
+
+        Scene newScene = new Scene(bPane);
+        newStage.setHeight(600);
+        newStage.setWidth(1000);
+        newStage.setResizable(false);
+
+        newScene.getStylesheets().add("schoolapp/gui/view/Style.css");
+
+        newStage.setScene(newScene);
+        newStage.show();
+        }
     }
 
     @FXML
