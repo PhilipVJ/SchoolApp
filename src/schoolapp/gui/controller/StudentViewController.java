@@ -15,16 +15,23 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Side;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.Chart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import schoolapp.be.Attendance;
 import schoolapp.be.Student;
 import schoolapp.gui.model.SchoolAppModel;
@@ -161,6 +168,43 @@ public class StudentViewController implements Initializable
     @FXML
     private void openChart(MouseEvent event)
     {
+        Stage newStage = new Stage();
+        
+        NumberAxis y = new NumberAxis();
+        CategoryAxis x = new CategoryAxis();
+        LineChart l = new LineChart(x, y);
+
+ 
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+        ArrayList<Attendance> allAttendance = s.getFullAttendance();
+
+        int numberOfDays = 0;
+        double daysAttended = 0;
+
+        for (Attendance k : allAttendance)
+        {
+            numberOfDays++;
+            if (k.getWasThere() == true)
+            {
+                daysAttended++;
+            }
+            int calAttendance = (int) (100 - daysAttended / numberOfDays * 100);
+
+            series.getData().add(new XYChart.Data("" + numberOfDays, calAttendance));
+        }
+
+        l.getData().add(series);
+        l.setLegendVisible(false);
+        l.setTitle("Fraværshistorik");
+        y.setLabel("Fravær i procent");
+        x.setLabel("Antal skoledage");
+        Scene newScene = new Scene(new BorderPane(l));
+//newScene.getStylesheets().add("schoolapp/gui/view/Style.css");
+        newStage.setHeight(600);
+        newStage.setWidth(1000);
+        newStage.setResizable(false);
+        newStage.setScene(newScene);
+        newStage.show();
 
     }
 

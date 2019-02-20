@@ -5,9 +5,6 @@
  */
 package schoolapp.dal;
 
-import schoolapp.be.Student;
-import schoolapp.be.Teacher;
-
 /**
  *
  * @author Philip
