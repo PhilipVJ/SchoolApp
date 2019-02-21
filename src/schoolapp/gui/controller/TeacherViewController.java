@@ -5,6 +5,7 @@
  */
 package schoolapp.gui.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -16,20 +17,25 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import schoolapp.be.Attendance;
@@ -37,6 +43,7 @@ import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
 import schoolapp.be.Teacher;
 import schoolapp.gui.model.SchoolAppModel;
+import schoolapp.gui.controller.MainViewController;
 
 /**
  * FXML Controller class
@@ -60,6 +67,7 @@ public class TeacherViewController implements Initializable
     private ChoiceBox<SchoolClass> classChooser;
 
     private SchoolAppModel model;
+    private BorderPane borderPane;
 
     private ObservableList<Student> curClass;
     @FXML
@@ -83,6 +91,8 @@ public class TeacherViewController implements Initializable
     private Label tName;
     @FXML
     private Label tMail;
+    @FXML
+    private AnchorPane teacherPage;
 
     /**
      * Initializes the controller class.
@@ -348,4 +358,18 @@ public class TeacherViewController implements Initializable
 
         }
     }
+
+    @FXML
+    private void teacherLogOut(ActionEvent event) throws IOException
+        {
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/MainView.fxml"));
+//        Parent root = loader.load();
+//        MainViewController con = loader.getController();
+//        con.setRootLayout(borderPane);
+//        
+//        borderPane.setCenter(root);
+        
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/schoolapp/gui/view/MainView.fxml"));
+        teacherPage.getChildren().setAll(pane);
+        }
 }

@@ -5,6 +5,7 @@
  */
 package schoolapp.gui.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -13,24 +14,30 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Side;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import schoolapp.be.Attendance;
 import schoolapp.be.Student;
 import schoolapp.gui.model.SchoolAppModel;
+import schoolapp.gui.controller.MainViewController;
+import javafx.scene.Node;
 
 /**
  *
@@ -43,6 +50,8 @@ public class StudentViewController implements Initializable
     private Label absence;
     private SchoolAppModel model;
     private Student s;
+    private BorderPane borderPane;
+    schoolapp.gui.controller.MainViewController mainViewController;
     @FXML
     private Label name;
     @FXML
@@ -61,6 +70,10 @@ public class StudentViewController implements Initializable
     private ObservableList<String> allOfDays = FXCollections.observableArrayList();
     @FXML
     private Label email;
+    @FXML
+    private Button logUd;
+    @FXML
+    private AnchorPane studentPage;
 
     public void initialize(URL url, ResourceBundle rb)
     {
@@ -211,5 +224,23 @@ public class StudentViewController implements Initializable
         newStage.show();
 
     }
+
+    @FXML
+    private void studentLogOut(ActionEvent event) throws IOException
+        {
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/MainView.fxml"));
+//        Parent root = loader.load();
+//        MainViewController con = loader.getController();
+//        con.setRootLayout(borderPane);
+//        
+//        borderPane.setCenter(root);
+
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/schoolapp/gui/view/MainView.fxml"));
+        studentPage.getChildren().setAll(pane);
+        
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/MainView.fxml"));
+//        Parent root = loader.load();
+//        studentPage.getScene().setRoot(root);
+        }
 
 }

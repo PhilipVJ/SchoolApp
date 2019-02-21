@@ -4,6 +4,7 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="662.0" prefWidth="600.0" styleClass="background" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schoolapp.gui.controller.TeacherViewController">
+<AnchorPane id="AnchorPane" fx:id="teacherPage" prefHeight="662.0" prefWidth="600.0" styleClass="background" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schoolapp.gui.controller.TeacherViewController">
    <children>
       <ChoiceBox fx:id="classChooser" layoutX="412.0" layoutY="73.0" prefHeight="45.0" prefWidth="180.0" styleClass="chart" value="Test" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="73.0" />
       <TableView fx:id="tableView" layoutX="11.0" layoutY="136.0" prefHeight="243.0" prefWidth="578.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="136.0">
@@ -50,5 +51,6 @@
       <Label layoutX="118.0" layoutY="73.0" prefHeight="21.0" prefWidth="46.0" text="Email:" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="72.0" />
       <Label fx:id="tName" layoutX="168.0" layoutY="67.0" prefHeight="26.0" prefWidth="146.0" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="40.0" />
       <Label fx:id="tMail" layoutX="160.0" layoutY="72.0" prefHeight="21.0" prefWidth="180.0" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="72.0" />
+      <Button layoutX="520.0" layoutY="14.0" mnemonicParsing="false" onAction="#teacherLogOut" text="Log ud" AnchorPane.bottomAnchor="620.0" AnchorPane.leftAnchor="490.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
    </children>
 </AnchorPane>
