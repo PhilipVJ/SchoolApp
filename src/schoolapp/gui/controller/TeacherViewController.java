@@ -333,8 +333,7 @@ public class TeacherViewController implements Initializable
             NumberAxis c = new NumberAxis();
             c.setLabel("Dage med fravær");
             CategoryAxis n = new CategoryAxis();
-           
-            
+
             BarChart b = new BarChart(n, c);
             b.setTitle("Fravær pr. dag");
             b.setLegendVisible(false);
@@ -362,17 +361,17 @@ public class TeacherViewController implements Initializable
 
     @FXML
     private void teacherLogOut(ActionEvent event) throws IOException
-        {
-        
+    {
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/LoginView.fxml"));
+        Parent root = loader.load();
         LoginController con = loader.getController();
         con.setRootLayout(rootLayout);
-        Parent root = loader.load();
         rootLayout.setCenter(root);
-        }
+    }
 
     void setRootLayout(BorderPane rootLayout)
     {
-       this.rootLayout=rootLayout;
+        this.rootLayout = rootLayout;
     }
 }
