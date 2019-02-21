@@ -44,7 +44,7 @@ public class RootLayoutController implements Initializable
     @FXML
     private void logOut(ActionEvent event) throws IOException
     {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/MainView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/LoginView.fxml"));
         Parent root = loader.load();
         LoginController con = loader.getController();
         con.setRootLayout(borderPane);

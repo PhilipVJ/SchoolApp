@@ -93,6 +93,7 @@ public class TeacherViewController implements Initializable
     private Label tMail;
     @FXML
     private AnchorPane teacherPage;
+    private BorderPane rootLayout;
 
     /**
      * Initializes the controller class.
@@ -362,14 +363,16 @@ public class TeacherViewController implements Initializable
     @FXML
     private void teacherLogOut(ActionEvent event) throws IOException
         {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/MainView.fxml"));
-//        Parent root = loader.load();
-//        MainViewController con = loader.getController();
-//        con.setRootLayout(borderPane);
-//        
-//        borderPane.setCenter(root);
         
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/schoolapp/gui/view/LoginView.fxml"));
-        teacherPage.getChildren().setAll(pane);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/LoginView.fxml"));
+        LoginController con = loader.getController();
+        con.setRootLayout(rootLayout);
+        Parent root = loader.load();
+        rootLayout.setCenter(root);
         }
+
+    void setRootLayout(BorderPane rootLayout)
+    {
+       this.rootLayout=rootLayout;
+    }
 }

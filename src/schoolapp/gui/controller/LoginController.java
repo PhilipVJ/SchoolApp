@@ -33,8 +33,7 @@ public class LoginController implements Initializable
     private Button button;
     @FXML
     private Label label;
-    @FXML
-    private AnchorPane anchorPane;
+
     private BorderPane rootLayout;
     @FXML
     private PasswordField password;
@@ -59,6 +58,8 @@ public class LoginController implements Initializable
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/StudentView.fxml"));
             Parent root = loader.load();
+            StudentViewController controller = loader.getController();
+            controller.setRootLayout(rootLayout);
             rootLayout.setCenter(root);
         } else
         {
@@ -78,6 +79,8 @@ public class LoginController implements Initializable
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/TeacherView.fxml"));
             Parent root = loader.load();
+            TeacherViewController controller = loader.getController();
+            controller.setRootLayout(rootLayout);
             rootLayout.setCenter(root);
         } else
         {

@@ -74,6 +74,7 @@ public class StudentViewController implements Initializable
     private Button logUd;
     @FXML
     private AnchorPane studentPage;
+    private BorderPane rootLayout;
 
     public void initialize(URL url, ResourceBundle rb)
     {
@@ -228,19 +229,17 @@ public class StudentViewController implements Initializable
     @FXML
     private void studentLogOut(ActionEvent event) throws IOException
         {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/MainView.fxml"));
-//        Parent root = loader.load();
-//        MainViewController con = loader.getController();
-//        con.setRootLayout(borderPane);
-//        
-//        borderPane.setCenter(root);
 
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/schoolapp/gui/view/LoginView.fxml"));
-        studentPage.getChildren().setAll(pane);
-        
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/MainView.fxml"));
-//        Parent root = loader.load();
-//        studentPage.getScene().setRoot(root);
+         FXMLLoader loader  = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/LoginView.fxml"));
+        Parent root = loader.load();
+        LoginController con = loader.getController();
+        con.setRootLayout(rootLayout);
+        rootLayout.setCenter(root);
         }
+
+    void setRootLayout(BorderPane rootLayout)
+    {
+      this.rootLayout=rootLayout;
+    }
 
 }
