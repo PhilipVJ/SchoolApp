@@ -21,7 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import schoolapp.gui.controller.MainViewController;
+import schoolapp.gui.controller.LoginController;
 
 /**
  *
@@ -99,7 +99,7 @@ public class SchoolApp extends Application
         loader.setLocation(SchoolApp.class.getResource("/schoolapp/gui/view/MainView.fxml"));
         AnchorPane logIn = (AnchorPane) loader.load();
 
-        MainViewController controller = loader.getController();
+        LoginController controller = loader.getController();
         controller.setRootLayout(rootLayout);
 
         // Set person overview into the center of root layout.

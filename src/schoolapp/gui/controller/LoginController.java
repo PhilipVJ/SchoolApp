@@ -26,7 +26,7 @@ import schoolapp.dal.Authentication;
  *
  * @author simge
  */
-public class MainViewController implements Initializable
+public class LoginController implements Initializable
 {
 
     @FXML
