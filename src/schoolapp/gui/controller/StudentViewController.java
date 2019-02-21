@@ -36,7 +36,7 @@ import javafx.stage.Stage;
 import schoolapp.be.Attendance;
 import schoolapp.be.Student;
 import schoolapp.gui.model.SchoolAppModel;
-import schoolapp.gui.controller.MainViewController;
+import schoolapp.gui.controller.LoginController;
 import javafx.scene.Node;
 
 /**
@@ -51,7 +51,7 @@ public class StudentViewController implements Initializable
     private SchoolAppModel model;
     private Student s;
     private BorderPane borderPane;
-    schoolapp.gui.controller.MainViewController mainViewController;
+    schoolapp.gui.controller.LoginController mainViewController;
     @FXML
     private Label name;
     @FXML
@@ -235,7 +235,7 @@ public class StudentViewController implements Initializable
 //        
 //        borderPane.setCenter(root);
 
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/schoolapp/gui/view/MainView.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/schoolapp/gui/view/LoginView.fxml"));
         studentPage.getChildren().setAll(pane);
         
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("/schoolapp/gui/view/MainView.fxml"));

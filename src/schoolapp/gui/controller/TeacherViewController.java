@@ -43,7 +43,7 @@ import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
 import schoolapp.be.Teacher;
 import schoolapp.gui.model.SchoolAppModel;
-import schoolapp.gui.controller.MainViewController;
+import schoolapp.gui.controller.LoginController;
 
 /**
  * FXML Controller class
@@ -369,7 +369,7 @@ public class TeacherViewController implements Initializable
 //        
 //        borderPane.setCenter(root);
         
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/schoolapp/gui/view/MainView.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/schoolapp/gui/view/LoginView.fxml"));
         teacherPage.getChildren().setAll(pane);
         }
 }

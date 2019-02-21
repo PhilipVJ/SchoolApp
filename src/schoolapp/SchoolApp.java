@@ -96,7 +96,7 @@ public class SchoolApp extends Application
     private void initView() throws IOException
     {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(SchoolApp.class.getResource("/schoolapp/gui/view/MainView.fxml"));
+        loader.setLocation(SchoolApp.class.getResource("/schoolapp/gui/view/LoginView.fxml"));
         AnchorPane logIn = (AnchorPane) loader.load();
 
         LoginController controller = loader.getController();

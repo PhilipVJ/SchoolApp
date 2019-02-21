@@ -5,10 +5,8 @@
  */
 package schoolapp.bll;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import schoolapp.be.Attendance;
-import schoolapp.be.SchoolClass;
 import schoolapp.be.Student;
 import schoolapp.be.Teacher;
 import schoolapp.dal.SchoolAppDAL;
